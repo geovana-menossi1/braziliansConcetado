@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>The Brazilians</title>
+    <style>
+        .black {
+            width: 100%;
+            height: 50px;
+            background-color: black;
+        }
+        /* Add other styles as necessary */
+    </style>
+</head>
+<body>
+    <section class="music">
+        <div class="introduction">
+            <h2 class="title">Vibrações da Música Brasileira</h2>
+            <p class="description">A música brasileira é uma expressão cultural rica e diversificada, moldada por influências indígenas, africanas e europeias...</p>
+            <label for="generosMusicais">Selecione um gênero musical:</label>
+            <select id="generosMusicais" class="generosMusicais">
+                <option value="">Selecione um gênero musical</option>
+                <!-- As opções serão preenchidas aqui -->
+            </select>
+        </div>
+        <div class="iconMusic-container">
+            <div class="iconMusic">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256-96a96 96 0 1 1 0 192 96 96 0 1 1 0-192zm0 224a128 128 0 1 0 0-256 128 128 0 1 0 0 256zm0-96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+    <section class="generoExp">
+        <h2 class="titulo">Celebrando os Artistas Brasileiros</h2>
+        <p class="descricao">Explore a vibrante cena musical brasileira...</p>
+    </section>
+    <section class="genre-introduction" id="genreIntroduction">
+        <div class="overlay">
+            <div class="genre-content">
+                <h1 class="genre-title">Jazz</h1>
+                <p class="genre-description">O jazz é um gênero musical que se originou nas comunidades afro-americanas...</p>
+                <a href="#" id="show-artists" class="genre-link">Ver Artistas</a>
+            </div>
+        </div>
+    </section>
+    <section id="responsaveis-section" class="responsaveis">
+        <h3 class="titulo-responsaveis">Responsáveis Destaque</h3>
+        <div class="responsaveis-cards"></div> 
+    </section>
+    <section id="artist-section" class="artist-section hidden">
+        <h3 class="titulo-artistas">Artistas Destaque</h3>
+        <div class="artistas-cards">
+            <div class="artista-card">
+                <img src="images/matue.jpg" alt="Matue" class="artista-imagem">
+                <h4 class="nome-artista">Zeca Pagodinho 1959-02-04</h4>
+                <p class="descricao-artista">Zeca Pagodinho é um renomado sambista brasileiro...</p>
+            </div>
+        </div>
+    </section>
+
+    <button id="scrollTopBtn" onclick="scrollToTop()" class="scroll-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+            <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+        </svg>
+    </button>
+
+    <script src="js/script.js"></script> <!-- Separate JS file -->
+</body>
+</html>
+<script>
+    document.querySelectorAll('.tab_label').forEach((label, index) => {
+    label.addEventListener('click', () => {
+        const tabId = `tab${index + 1}`;
+        document.getElementById(tabId).checked = true;
+
+        setTimeout(() => {
+            window.location.href = `${tabId}.html`; // Simplified redirect
+        }, 100);
+    });
+});
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+window.onscroll = function() {
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    scrollTopBtn.classList.toggle('show', document.body.scrollTop > 300 || document.documentElement.scrollTop > 300);
+};
+
+window.addEventListener('load', () => {
+    const textoBanner = document.querySelector('.texto-banner');
+    textoBanner.classList.add('animate');
+});
+
+document.getElementById('show-artists').addEventListener('click', (event) => {
+    event.preventDefault();
+    mostrarArtistas(); 
+});
+
+function mostrarArtistas() {
+    document.getElementById('responsaveis-section').classList.remove('hidden');
+    document.getElementById('responsaveis-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Fetch subcategories function
+function fetchSubcategorias() {
+    fetch('http://10.188.35.110:8000/subcategorias')
+        .then(response => response.json())
+        .then(data => {
+            const select = document.getElementById('generosMusicais');
+            select.innerHTML = '<option value="">Selecione um gênero musical</option>';
+
+            data.subcategorias.forEach(subcategoria => {
+                if (subcategoria.culturas_id_cultura === 4) {
+                    const option = document.createElement('option');
+                    option.value = subcategoria.id_subcategoria; 
+                    option.textContent = subcategoria.nome_subcategoria; 
+                    select.appendChild(option);
+                }
+            });
+        })
+        .catch(error => console.error('Erro ao buscar subcategorias:', error));
+}
+
+// Other functions go here...
+
+
+</script>

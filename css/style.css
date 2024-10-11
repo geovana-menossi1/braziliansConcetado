@@ -903,8 +903,10 @@ background-size: cover;
 
 }
 .bgimg-1 {
-background-image: url("../images/arquitetura.jpg");
-min-height: 100%;
+  height: 800px;
+}
+.bgimg-1 img{
+  height: 800px;
 }
 
 .bgimg-2 {
@@ -2803,6 +2805,12 @@ visibility: hidden;
   }
   .p_arquitetura{
     font-size: 10px;
+  }
+  .bgimg-1 {
+    height: 400px;
+  }
+  .bgimg-1 img{
+    height: 400px;
   }
 
 }

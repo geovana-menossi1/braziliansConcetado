@@ -80,7 +80,7 @@
             <img src="images/bannerMusica.jpg" class="imgmusica" alt="Imagem de fundo">
             <div class="texto-banner">
                 <h1 class="animated-text">A Alma da Música Brasileira</h1>
-                <h2 class="animated-text">Descubra a Riqueza dos Ritmos Brasileiros e Sua Influência Global</h2>
+                <h2 class="animated-text animated-text2">Descubra a Riqueza dos Ritmos Brasileiros e Sua Influência Global</h2>
                 <div class="underline"></div>
             </div>
         </div>
@@ -104,7 +104,7 @@
                 </div>
                 <div class="genero">
                     <i class="fas fa-headphones-alt"></i>
-                    <h3>MPB (Música Popular Brasileira)</h3>
+                    <h3>MPB</h3>
                     <p>A MPB é um estilo que mistura diversos gêneros, destacando as vozes e composições de artistas brasileiros contemporâneos.</p>
                 </div>
             </div>
@@ -288,7 +288,6 @@
             </div>
         </section>
         <section class="genre-introduction" id="genreIntroduction">
-            <div class="overlay">
                 <div class="genre-content">
                     <h1 class="genre-title">Jazz</h1>
                     <p class="genre-description">
@@ -296,9 +295,8 @@
                     </p>
                     <a href="#" id="show-artists" class="genre-link">Ver Artistas</a>
                 </div>
-            </div>
         </section>
-        <section id="artist-section" class="artist-section">
+        <section id="artist-section" class="artist-section hidden">
             <h3 class="titulo-artistas">Artistas Destaque</h3>
             <div class="artistas-cards"></div> <!-- Aqui você pode colocar os cards dos artistas -->
         </section>
@@ -435,33 +433,45 @@
         });
 
         function mostrarArtistas() {
-            document.getElementById('responsaveis-section').classList.remove('hidden');
-            document.getElementById('responsaveis-section ').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('artist-section').classList.remove('hidden');
+            document.getElementById('artist-section ').scrollIntoView({ behavior: 'smooth' });
         }
 
 </script>
 <script>
     function fetchSubcategorias() {
-        fetch('http://10.188.35.110:8000/subcategorias')
-            .then(response => response.json())
-            .then(data => {
-                const select = document.getElementById('generosMusicais');
+    fetch('http://10.188.35.110:8000/subcategorias')
+        .then(response => response.json())
+        .then(data => {
+            const select = document.getElementById('generosMusicais');
 
-                // Limpa as opções existentes, exceto a primeira
-                select.innerHTML = '<option value="">Selecione um gênero musical</option>';
+            // Limpa as opções existentes, exceto a primeira
+            select.innerHTML = '<option value="">Selecione um gênero musical</option>';
 
-                // Itera sobre as subcategorias e adiciona ao select se cultura_id for 4
-                data.subcategorias.forEach(subcategoria => {
-                    if (subcategoria.culturas_id_cultura === 4) {
-                        const option = document.createElement('option');
-                        option.value = subcategoria.id_subcategoria; // Atribui o id da subcategoria como valor
-                        option.textContent = subcategoria.nome_subcategoria; // Usa o nome da subcategoria como texto
-                        select.appendChild(option);
+            // Itera sobre as subcategorias e adiciona ao select se cultura_id for 4
+            data.subcategorias.forEach(subcategoria => {
+                if (subcategoria.culturas_id_cultura === 4) {
+                    const option = document.createElement('option');
+                    option.value = subcategoria.id_subcategoria; // Atribui o id da subcategoria como valor
+                    option.textContent = subcategoria.nome_subcategoria; // Usa o nome da subcategoria como texto
+                    select.appendChild(option);
+                }
+            });
+
+            // Adiciona o evento de mudança (change) para o select
+            select.addEventListener('change', function() {
+                const selectedValue = select.value;
+                if (selectedValue) {
+                    // Rola para a seção com a âncora correspondente
+                    const targetSection = document.getElementById('genreIntroduction');
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' }); // Rolagem suave até a seção
                     }
-                });
-            })
-            .catch(error => console.error('Erro ao buscar subcategorias:', error));
-    }
+                }
+            });
+        })
+        .catch(error => console.error('Erro ao buscar subcategorias:', error));
+}
 
     // Função para buscar o post com base no nome da subcategoria
     function fetchPostBySubcategoria(subcategoriaNome) {

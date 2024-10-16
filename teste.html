@@ -5,242 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Cinema</title>
+    <title>Literatura</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<style>
-.cinema {
-    display: block; 
-    width: 100%;
-    height: auto;
-    position: relative; 
-    text-align: center;
-    overflow: hidden; 
-    background-color: #01261F; 
-}
-.cinema_banner {
-    width: 100%;
-    height: auto;
-    object-fit: cover; 
-}
-.cinema img {
-    display: block; 
-}
-.produtoras {
-    position: relative;
-    min-width: 100%;
-    height: 300px; 
-    overflow: hidden;
-}
-.produtoras-inner {
-    display: flex;
-    animation: scroll 20s linear infinite; 
-}
-.produtoras img {
-    height: 300px; 
-    width: auto; 
-    flex-shrink: 0;
-    object-fit: cover; 
-}
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-100%); 
-    }
-}
-.banner_filmes {
-    width: 100%;
-    overflow: hidden;
-    position: relative; 
-}
-.banner_filmes img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-}
-.cinemaFilms {
-    position: relative;
-    overflow: hidden;
-    width: 100%;  
-    height: auto;     
-    text-align: center;
-    margin: 20px 0;    
-}
-.cinemaFilms img {
-    width: 100%;        
-    height: auto;       
-    display: block;  
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-@media (max-width: 768px) {
-    .cinemaFilms {
-        margin: 10px 0; 
-    }
-}
-
-.film-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    background-color: rgb(0, 0, 0); 
-}
-.film-top, .film-bottom {
-    display: flex;
-    justify-content: space-around; 
-    gap: 10px; 
-    margin: 10px auto;
-    width: 99.5%;
-}
-.fitaTopo {
-    width: 50px; 
-    height: 30px;
-    background-color: #e6e6e6; 
-    border-radius: 5px; 
-}
-.meio {
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-
-#prevBtn, #nextBtn {
-    background-color: #000000;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s;
-}
-.carousel-container {
-    width: 100%;
-    overflow: hidden;
-}
-
-.carousel {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.movies {
-    min-width: 25%; 
-    box-sizing: border-box;
-    padding: 10px;
-}
-
-.movies img {
-    width: 100%;
-    height: 300px; 
-    object-fit: cover;
-    border-radius: 10px;
-}
-.filmes {
-    display: flex;
-    flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha */
-    justify-content: center; /* Centraliza os itens horizontalmente */
-    align-items: flex-start; /* Alinha os itens ao topo da linha */
-    padding: 20px;
-    background-color: #e6e6e6;
-    border: 5px solid #3a312c;
-}
-.banner {
-    position: relative;
-    width: 95%; /* Reduzido em 5% */
-    max-width: 427.5px; /* Reduzido em 5% de 450px */
-    padding: 19px; /* Reduzido em 5% de 20px */
-    background-color: #e6e6e6;
-    text-align: center;
-    border: 9.5px solid #3a312c; /* Reduzido em 5% de 10px */
-    box-shadow: 0 9.5px 19px rgba(0, 0, 0, 0.2); /* Reduzido em 5% */
-    margin-top: 123.5px; /* Reduzido em 5% de 130px */
-    margin-left: 28.5px; /* Reduzido em 5% de 30px */
-}
-
-.banner::before,
-.banner::after {
-    content: '';
-    position: absolute;
-    top: -9.5px; /* Reduzido em 5% de 10px */
-    width: 133px; /* Reduzido em 5% de 140px */
-    height: 4.75px; /* Reduzido em 5% de 5px */
-    background-color: #3a312c;
-}
-
-.banner::before {
-    left: 44%; /* Mantém a posição para alinhamento */
-    transform: translateX(-50%) rotate(-45deg);
-    transform-origin: left;
-}
-
-.banner::after {
-    left: 57%; /* Mantém a posição para alinhamento */
-    transform: translateX(-50%) rotate(45deg);
-    transform-origin: right;
-}
-
-.topo h3 {
-    font-size: 0.95rem; /* Reduzido em 5% de 1rem */
-    color: #3a312c;
-    text-transform: uppercase;
-    font-family: 'Arial', sans-serif;
-    margin-bottom: 9.5px; /* Reduzido em 5% de 10px */
-}
-
-.topo h1 {
-    font-size: 1.9rem; /* Reduzido em 5% de 2rem */
-    color: #C20B11;
-    font-family: 'Arial Black', sans-serif;
-    margin-bottom: 19px; /* Reduzido em 5% de 20px */
-}
-
-.imagem-filme img {
-    width: 100%;
-    height: 285px; /* Reduzido em 5% de 300px */
-    object-fit: cover;
-    border: 1.9px solid #3a312c; /* Reduzido em 5% de 2px */
-}
-
-.informacoes h2 {
-    font-size: 1.425rem; /* Reduzido em 5% de 1.5rem */
-    color: #C20B11;
-    font-family: 'Arial Black', sans-serif;
-    margin: 19px 0 9.5px 0; /* Reduzido em 5% */
-}
-
-.informacoes p {
-    font-size: 0.95rem; /* Reduzido em 5% de 1rem */
-    color: #3a312c;
-    font-family: 'Arial', sans-serif;
-    margin-bottom: 9.5px; /* Reduzido em 5% de 10px */
-}
-
-.detalhes {
-    display: flex;
-    justify-content: space-around;
-    font-size: 1.14rem; /* Reduzido em 5% de 1.2rem */
-    font-family: 'Arial Black', sans-serif;
-    color: #3a312c;
-    margin: 9.5px 0; /* Reduzido em 5% de 10px */
-}
-
-.informacoes a {
-    text-decoration: none;
-    color: #C20B11;
-    font-size: 1.14rem; /* Reduzido em 5% de 1.2rem */
-    font-family: 'Arial', sans-serif;
-}
-
-
-</style>
-<body>
+<body class="body_lit">
     <nav>
         <div class="menu-toggle" id="menu-toggle">
             <div class="bar"></div>
@@ -269,13 +37,13 @@
                 <input type="radio" name="tab" id="tab1" class="tab tab--1" />
                 <label class="tab_label" for="tab1">Início</label>
         
-                <input type="radio" name="tab" id="tab2" class="tab tab--2" />
+                <input type="radio" name="tab" id="tab2" class="tab tab--2" checked/>
                 <label class="tab_label" for="tab2">Literatura</label>
         
                 <input type="radio" name="tab" id="tab3" class="tab tab--3" />
                 <label class="tab_label" for="tab3">Gastronomia</label>
         
-                <input type="radio" name="tab" id="tab4" class="tab tab--4" checked/>
+                <input type="radio" name="tab" id="tab4" class="tab tab--4" />
                 <label class="tab_label" for="tab4">Cinema</label>
         
                 <input type="radio" name="tab" id="tab5" class="tab tab--5" />
@@ -297,134 +65,40 @@
             <button class="bt_login"><a class="link_login" href="login.html">Login</a></button>
         </div>
     </nav>
-    <main>
-        <banner class="cinema">
-            <img src="images/cinema.png" alt="" class="cinema_banner">
-        </banner>
-        <section class="produtoras">
-            <div class="produtoras-inner">
-                <img src="images/columbia.png" alt="Columbia Pictures">
-                <img src="images/a24.png" alt="A24">
-                <img src="images/warner.png" alt="Warner Bros">
-                <img src="images/o2.png" alt="O2 Filmes">
-                <img src="images/globo.webp" alt="Globo Filmes">
-                <img src="images/paris.png" alt="Paris Filmes">
-                <img src="images/disney.png" alt="Disney">
-                <img src="images/newline.png" alt="New Line Cinema">
-                <img src="images/focus.png" alt="Focus Features">
-                <img src="images/universal.png" alt="Universal Pictures">
-                <img src="images/sony.png" alt="Sony Pictures Animation">
-            </div>
-        </section>
-        <section class="cinemaFilms">
-            <img src="images/banner-cinema3.png" alt="">
-        </section>
-        <div class="film-container">
-                <div class="film-top">
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                </div>
-                <div class="meio">
-                    <button id="prevBtn"><span class="material-symbols-outlined">arrow_back_ios </span></button>
-                    <div class="carousel-container">
-                        <div class="carousel">
-                            <div class="movies"><img src="Central do Brasil, de Walter Sales_ uma bula para o Brasil.jpg" alt="Central do Brasil"></div>
-                            <div class="movies"><img src="A Hora da Estrela (Suzana Amaral) 1.jpg" alt="A Hora da Estrela"></div>
-                            <div class="movies"><img src="O Auto da Compadecida.jpg" alt="O Auto da Compadecida"></div>
-                            <div class="movies"><img src="Figurinos do cinema brasileiro - André do Val.jpg" alt="Figurinos"></div>
-                            <div class="movies"><img src="Central do Brasil, de Walter Sales_ uma bula para o Brasil.jpg" alt="Central do Brasil"></div>
-                            <div class="movies"><img src="A Hora da Estrela (Suzana Amaral) 1.jpg" alt="A Hora da Estrela"></div>
-                            <div class="movies"><img src="O Auto da Compadecida.jpg" alt="O Auto da Compadecida"></div>
-                            <div class="movies"><img src="Figurinos do cinema brasileiro - André do Val.jpg" alt="Figurinos"></div>
-                        </div>
-                    </div>
-                    <button id="nextBtn"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
-                </div>
-                <div class="film-bottom">
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                    <div class="fitaTopo"></div>
-                </div>
-        </div>
-        <section class="filmes">
-            <div class="banner">
-                <div class="topo">
-                    <h1>Central do Brasil</h1>
-                </div>
-                <div class="imagem-filme">
-                    <img src="Central do Brasil, de Walter Sales_ uma bula para o Brasil.jpg" alt="Festival Indie de Cinema">
-                </div>
-                <div class="informacoes">
-                    <h2>Sinopse</h2>
-                    <p>O filme é uma sátira distópica ambientada em um futuro próximo no Brasil, onde o governo emite uma medida provisória determinando que todos os cidadãos negros sejam obrigados a "retornar" à África como uma forma de "reparação histórica".</p>
-                </div>
-            </div>
-        </section>
+      <div class="time">
+        <h1>Introdução</h1>
+        <br>
+        <p>A literatura brasileira é um mosaico vibrante de histórias, estilos e vozes, refletindo a diversidade cultural e histórica do país. Desde os primeiros relatos dos exploradores portugueses até as complexas narrativas contemporâneas, ela oferece um panorama rico e fascinante da evolução social e cultural do Brasil.</p>
+      </div>
+      <div class="linha_do_tempo">
+          <div class="linha_tempo">
+              <div class="timeline">
+                  <div class="line"></div>
+                  <div class="number"></div>
+                  <div class="number"></div>
+                  <div class="number"></div>
+                  <div class="number"></div>
+                  <div class="number"></div>
+                  <div class="number"></div>
+                  <div class="number"></div>
+                  <div class="number"></div>
+                  <div class="number"></div>
+                  <div class="number"></div>
+              </div>
+          </div>
+          <div class="linha_tempo_card">
+              <div id="timeline" class="timeline">
+                
+              </div>
+          </div>
+      </div>
         
-    </main>
     <footer>
         <div class="footer-containerGe">
             <div class="footer-sectionGe">
                 <h3 class="footer-headingGe">Criadores do Site</h3>
                 <p class="footer-textGe">Adriano Bedin Junior</p>
-                <p class="footer-textGe">ALysson Alves Fernanades Santos</p>
+                <p class="footer-textGe">Alysson Alves Fernanades Santos</p>
                 <p class="footer-textGe">Caio Fernandes Oliveira</p>
                 <p class="footer-textGe">Fernanda Carolina Batista de Souza</p>
                 <p class="footer-textGe">Geovana Pissinin Menossi</p>
@@ -497,40 +171,13 @@
     </button>
 </body>
 </html>
+
 <script>
-    const carousel = document.querySelector('.carousel');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-
-    let currentIndex = 0;
-    const totalMovies = document.querySelectorAll('.movies').length;
-    const visibleMovies = 4; 
-
-    function updateCarousel() {
-        const movieWidth = document.querySelector('.movies').offsetWidth;
-        carousel.style.transform = `translateX(-${currentIndex * movieWidth}px)`;
-    }
-
-    nextBtn.addEventListener('click', () => {
-        if (currentIndex < totalMovies - visibleMovies) {
-            currentIndex++;
-            updateCarousel();
-        }
-    });
-
-    prevBtn.addEventListener('click', () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateCarousel();
-        }
-    });
-
-    window.addEventListener('resize', updateCarousel); 
     document.querySelectorAll('.tab_label').forEach((label, index) => {
         label.addEventListener('click', () => {
             const tabId = `tab${index + 1}`;
             document.getElementById(tabId).checked = true;
-
+ 
             setTimeout(() => {
                 switch (tabId) {
                     case 'tab1':
@@ -555,7 +202,6 @@
             }, 100);
         });
     });
-    
     function scrollToTop() {
         window.scrollTo({
             top: 0,
@@ -570,71 +216,139 @@
             scrollTopBtn.classList.remove('show');
         }
     };
+    function scrollToPeriod(periodId) {
+    const element = document.getElementById(periodId);
+   
+    element.scrollIntoView({ behavior: 'smooth' });
+}
 </script>
-<script>
+<script>    
     function fetchPosts() {
-        const itens = document.getElementById("itens")
         fetch('http://10.188.35.110:8000/posts')
             .then(response => response.json())
             .then(postsData => {
                 fetch('http://10.188.35.110:8000/subcategorias')
                     .then(subcategoriesResponse => subcategoriesResponse.json())
                     .then(subcategoriesData => {
-                        const validSubcategories = new Set();
+                        const validSubcategories = new Map();
+                        const timeline = document.getElementById("timeline")
+                        const periodos = document.getElementById("periodos")
 
-                        // Filtra as subcategorias que têm culturas_id_cultura igual a 3
                         subcategoriesData.subcategorias.forEach(subcategoria => {
-                            if (subcategoria.culturas_id_cultura === 3) {
-                                validSubcategories.add(subcategoria.id_subcategoria);
+                            if (subcategoria.culturas_id_cultura === 1) {
+                                validSubcategories.set(subcategoria.id_subcategoria,subcategoria.nome_subcategoria);
+                                
+                                
                             }
                         });
-
-                        // Array para armazenar os posts que têm subcategorias válidas
+                        console.log(validSubcategories)
                         const validPosts = [];
 
-                        // Verifica cada post e adiciona apenas os que têm subcategorias válidas
                         postsData.posts.forEach(post => {
-                            if (validSubcategories.has(post.subcategorias_id_subcategoria)) {
+                            if (validSubcategories.has(post.subcategorias_id_subcategoria,)) {
                                 validPosts.push(post);
+                            
                             }
+                        
                         });
+                        
+                        validPosts.forEach(post => {
+                            fetch('http://10.188.35.110:8000/responsaveis')  .then(responsaveisResponse => responsaveisResponse.json())
+                            .then(responsaveisData => {
+                                const validResonsaveis = [];
+                            responsaveisData.responsaveis.forEach(responsaveis => {
+                            
 
-                      validPosts.forEach(post =>{
-                        const nomeReal = post.imagem_post ? post.imagem_post.split("/").pop() : null;
-                       
-                        itens.innerHTML+=`
-                          
-                        <div class="cardfer">
-                    <div class="card-contentfer">
-                        <div class="frontfer">
-                            <img src="http://10.188.35.110:8000/postsimg/${nomeReal}" alt="Filme 1">
-                        </div>
-                        <div class="backfer">
+                                if (responsaveis.posts_id_post === post.id_post) {
+                                    validResonsaveis.push({
+                                        nome: responsaveis.nome,
+                                        data_in: responsaveis.data_in,
+                                        data_out: responsaveis.data_out,
+                                        biografia: responsaveis.biografia,
+                                        foto: responsaveis.foto
+                                    });
+                                }
+                            });
+
+            console.log(validResonsaveis[0].foto); 
+                            
+                            const nomeSubcategoria = validSubcategories.get(post.subcategorias_id_subcategoria);
+                            console.log("nome da subcategoria"+nomeSubcategoria)
+                            const nomeimagem = validResonsaveis[0].foto ? validResonsaveis[0].foto.split("/").pop() : null;
+                            const imagempost = post.imagem_post ? post.imagem_post.split("/").pop() : null;
+                      
+                            timeline.innerHTML+=`
+                            <div class="card_periodo" onclick="scrollToPeriod('${nomeSubcategoria}')"><h3>${nomeSubcategoria}</h3> <h4>(${post.nome_post})</h4></div>
+                            `
+
+                            periodos.innerHTML+=`
+                            <div class="bgimg-1" id="${nomeSubcategoria}">
+                                <img class="img_card_autor" src="http://10.188.35.110:8000/postsimg/${imagempost}" alt="">
+                                <div class="caption">
+                                <span class="border">${nomeSubcategoria}</span>
+                                </div>
+                            </div>
+                            <div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
                             <p>${post.descricao_post}</p>
-                        </div>
-                    </div>
-                </div>
-                
-                        `
-                      })
+                            </div>
+                            
+                            <div class="bgimg-2">
+                            <div class="caption">
+                            <span class="border" style="background-color:#282E34;font-size:25px;color: #f7f7f7;">AUTOR</span>
+                            </div>
+                            </div>
+                            <div style="position:relative;">
+                            <div style="color:#ddd; background-color:#282E34; text-align:center; padding:50px 80px; text-align: justify;display: flex; flex-direction: row; justify-content: space-between;">
+                                <div class="card_autor">
+                                    <img class="img_card_autor" src="http://10.188.35.110:8000/responsaveisimg/${nomeimagem}" alt="">
+                                </div>
+                            </div>
+                            </div>
+                            
+                            <div class="bgimg-3">
+                            <div class="caption">
+                            <span class="border" style="background-color:#282E34;font-size:25px;color: #f7f7f7;">LIVROS</span>
+                            </div>
+                            </div>
+                            
+                            <div style="position:relative;">
+                            <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify; display: flex; flex-direction: row; justify-content: space-between;">
+                                <div class="card_livro">
+                                    <img class="img_card_livro" src=""alt="">
+                                </div>
+                                <div class="card_livro">
+                                    <img class="img_card_livro" src="" alt="">
+                                </div>
+                                <div class="card_livro">
+                                    <img class="img_card_livro" src="" alt="">
+                                </div>
+                            </div>
+                            </div>
+
+                                    `
+                                    console.log(post.nome_post+" "+nomeSubcategoria)
+                                })
+                                
+                            })
+                        
+                            })
+                            .catch(error => console.error('Erro ao buscar subcategorias:', error));
                     })
-                    .catch(error => console.error('Erro ao buscar subcategorias:', error));
-            })
-            .catch(error => console.error('Erro ao buscar posts:', error));
-    }
-
+                    .catch(error => console.error('Erro ao buscar posts:', error));
+            }
     fetchPosts();
+    
     const menuToggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('menu');
+        const menu = document.getElementById('menu');
 
-    menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active'); 
-        menu.classList.toggle('open'); 
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active'); 
+            menu.classList.toggle('open'); 
 
-        if (menu.classList.contains('open')) {
-            document.body.style.overflow = 'hidden';  
-        } else {
-            document.body.style.overflow = 'auto';  
-        }
-    });
+            if (menu.classList.contains('open')) {
+                document.body.style.overflow = 'hidden';  
+            } else {
+                document.body.style.overflow = 'auto';  
+            }
+        });
 </script>

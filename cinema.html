@@ -9,39 +9,6 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <style>
-.cinema {
-    display: block; 
-    width: 100%;
-    height: auto;
-    position: relative; 
-    text-align: center;
-    overflow: hidden; 
-    background-color: #01261F; 
-}
-.cinema_banner {
-    width: 100%;
-    height: auto;
-    object-fit: cover; 
-}
-.cinema img {
-    display: block; 
-}
-.produtoras {
-    position: relative;
-    min-width: 100%;
-    height: 300px; 
-    overflow: hidden;
-}
-.produtoras-inner {
-    display: flex;
-    animation: scroll 20s linear infinite; 
-}
-.produtoras img {
-    height: 300px; 
-    width: auto; 
-    flex-shrink: 0;
-    object-fit: cover; 
-}
 @keyframes scroll {
     0% {
         transform: translateX(0);
@@ -50,230 +17,80 @@
         transform: translateX(-100%); 
     }
 }
-.banner_filmes {
-    width: 100%;
-    overflow: hidden;
-    position: relative; 
-}
-.banner_filmes img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-}
-.cinemaFilms {
-    position: relative;
-    overflow: hidden;
-    width: 100%;  
-    height: auto;     
-    text-align: center;
-    margin: 20px 0;    
-}
-.cinemaFilms img {
-    width: 100%;        
-    height: auto;       
-    display: block;  
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
 @media (max-width: 768px) {
-    .cinemaFilms {
-        margin: 10px 0; 
-    }
-}
-
-.film-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    background-color: rgb(0, 0, 0); 
-}
-.film-top, .film-bottom {
-    display: flex;
-    justify-content: space-around; 
-    gap: 10px; 
-    margin: 10px auto;
-    width: 99.5%;
-}
-.fitaTopo {
-    width: 50px; 
-    height: 30px;
-    background-color: #e6e6e6; 
-    border-radius: 5px; 
-}
-.meio {
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-
-#prevBtn, #nextBtn {
-    background-color: #000000;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s;
-}
-.carousel-container {
-    width: 100%;
-    overflow: hidden;
-}
-
-.carousel {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.movies {
-    min-width: 25%; 
-    box-sizing: border-box;
-    padding: 10px;
-}
-
-.movies img {
-    width: 100%;
-    height: 300px; 
-    object-fit: cover;
-    border-radius: 10px;
-}
-.filmes {
-    display: flex;
-    flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha */
-    justify-content: center; /* Centraliza os itens horizontalmente */
-    align-items: flex-start; /* Alinha os itens ao topo da linha */
-    padding: 20px;
-    background-color: #e6e6e6;
-    border: 5px solid #3a312c;
-}
-.banner {
+    
+  .cinema{
+    margin-top: 80px;
+  }
+  .produtoras {
     position: relative;
-    width: 95%; /* Reduzido em 5% */
-    max-width: 427.5px; /* Reduzido em 5% de 450px */
-    padding: 19px; /* Reduzido em 5% de 20px */
-    background-color: #e6e6e6;
-    text-align: center;
-    border: 9.5px solid #3a312c; /* Reduzido em 5% de 10px */
-    box-shadow: 0 9.5px 19px rgba(0, 0, 0, 0.2); /* Reduzido em 5% */
-    margin-top: 123.5px; /* Reduzido em 5% de 130px */
-    margin-left: 28.5px; /* Reduzido em 5% de 30px */
-    height: 600px;
-}
-
-.banner::before,
-.banner::after {
-    content: '';
-    position: absolute;
-    top: -9.5px; /* Reduzido em 5% de 10px */
-    width: 133px; /* Reduzido em 5% de 140px */
-    height: 4.75px; /* Reduzido em 5% de 5px */
-    background-color: #3a312c;
-}
-
-.banner::before {
-    left: 44%; /* Mantém a posição para alinhamento */
-    transform: translateX(-50%) rotate(-45deg);
-    transform-origin: left;
-}
-
-.banner::after {
-    left: 57%; /* Mantém a posição para alinhamento */
-    transform: translateX(-50%) rotate(45deg);
-    transform-origin: right;
-}
-
-.topo h3 {
-    font-size: 0.95rem; /* Reduzido em 5% de 1rem */
-    color: #3a312c;
-    text-transform: uppercase;
-    font-family: 'Arial', sans-serif;
-    margin-bottom: 9.5px; /* Reduzido em 5% de 10px */
-}
-
-.topo h1 {
-    font-size: 1.2rem; /* Reduzido em 5% de 2rem */
-    color: #C20B11;
-    font-family: 'Arial Black', sans-serif;
-    margin-bottom: 19px; /* Reduzido em 5% de 20px */
-}
-
-.imagem-filme {
-    width: 100%; /* Assegura que o contêiner ocupe 100% da largura disponível */
-    overflow: hidden; /* Impede que a imagem ultrapasse o contêiner */
-}
-
-.imagem-filme img {
-    width: 100%; /* A imagem ocupa 100% da largura do contêiner */
-    height: 285px; /* Altura fixa para todas as imagens */
-    object-fit: cover; /* Mantém a proporção da imagem e cobre o espaço */
-    border: 1.9px solid #3a312c; /* Borda das imagens */
-    display: block; /* Remove espaço abaixo da imagem (se necessário) */
-}
-
-.informacoes h2 {
-    font-size: 1.425rem; /* Reduzido em 5% de 1.5rem */
-    color: #C20B11;
-    font-family: 'Arial Black', sans-serif;
-    margin: 19px 0 9.5px 0; /* Reduzido em 5% */
-}
-
-.informacoes p {
-    font-size: 0.95rem; /* Reduzido em 5% de 1rem */
-    color: #3a312c;
-    font-family: 'Arial', sans-serif;
-    margin-bottom: 9.5px; /* Reduzido em 5% de 10px */
-}
-
-.detalhes {
-    display: flex;
-    justify-content: space-around;
-    font-size: 1.14rem; /* Reduzido em 5% de 1.2rem */
-    font-family: 'Arial Black', sans-serif;
-    color: #3a312c;
-    margin: 9.5px 0; /* Reduzido em 5% de 10px */
-}
-
-.informacoes a {
-    text-decoration: none;
-    color: #C20B11;
-    font-size: 1.14rem; /* Reduzido em 5% de 1.2rem */
-    font-family: 'Arial', sans-serif;
-}
-.filmesNome {
-    background-color: #000; /* Cor de fundo */
-    color: #fff; /* Cor do texto */
-    font-size: 3rem; /* Tamanho da fonte */
-    font-family: 'Arial Black', sans-serif; /* Fonte em negrito */
-    text-align: center; /* Centraliza o texto */
-    padding: 20px; /* Espaçamento interno */
-    margin: 20px 0; /* Margem superior e inferior */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para um efeito de elevação */
-    text-transform: uppercase; /* Texto em maiúsculas */
-    letter-spacing: 1px; /* Espaçamento entre letras */
-    position: relative; /* Para posicionar o pseudo-elemento */
-    height: 200px;
+    min-width: 100%;
+    height: 100px; 
+    overflow: hidden;
+  }
+  .produtoras-inner {
+      display: flex;
+      animation: scroll 20s linear infinite; 
+  }
+  .produtoras img {
+      height: 100px; 
+      width: auto; 
+      flex-shrink: 0;
+      object-fit: cover; 
+  }
+  .film-container{
+    display: none;
+  }
+  .filmesNome{
+    height: 100px;
+    font-size: 18px;
+  }
+  .filmesNome::after {
+    display: none;
+  }
+  .bannner {
+    height: 400px; /* Reduzindo ainda mais a altura */
+    position: relative;
+    left: 28px;
     display: flex;
     align-items: center;
+    justify-content: space-around;
     flex-direction: column;
-    justify-content: center;
+    width: 300px; /* Reduzindo a largura */
+  }
+
+  .bannner::before,
+  .bannner::after {
+      width: 95px; /* Reduzindo a largura */
+  }
+
+  .imagem-filme img {
+      height: 250px; /* Reduzindo ainda mais a altura da imagem */
+  }
+
+  .topo h1 {
+      font-size: 0.8rem; /* Diminuindo o tamanho da fonte */
+  }
+
+  .informacoes h2 {
+      font-size: 0.8rem; /* Diminuindo o tamanho da fonte */
+  }
+
+  .informacoes p {
+      font-size: 8px; /* Fonte ainda menor */
+  }
+
+  .detalhes {
+      font-size: 0.6rem; /* Diminuindo ainda mais o tamanho da fonte */
+  }
+
+  .filmes {
+      display: grid; /* Layout em grid */
+      grid-template-columns: repeat(2, 1fr); /* Duas colunas de cards */
+      gap: 10px; /* Menor espaçamento entre os cards */
+      padding: 5px; /* Reduzindo o padding */
+  }
 }
-
-.filmesNome::after {
-    content: '';
-    display: block;
-    width: 250px; /* Largura do traço */
-    height: 4px; /* Altura do traço */
-    background-color: #fff; /* Cor do traço */
-    margin: 10px auto; /* Centraliza o traço abaixo do texto */
-    border-radius: 2px; /* Bordas arredondadas do traço */
-}
-
-
 </style>
 <body>
     <nav>
@@ -392,14 +209,14 @@
                     <button id="prevBtn"><span class="material-symbols-outlined">arrow_back_ios </span></button>
                     <div class="carousel-container">
                         <div  class="carousel">
-                            <div class="movies"><img src="Central do Brasil, de Walter Sales_ uma bula para o Brasil.jpg" alt="Central do Brasil"></div>
-                            <div class="movies"><img src="A Hora da Estrela (Suzana Amaral) 1.jpg" alt="A Hora da Estrela"></div>
-                            <div class="movies"><img src="O Auto da Compadecida.jpg" alt="O Auto da Compadecida"></div>
-                            <div class="movies"><img src="Figurinos do cinema brasileiro - André do Val.jpg" alt="Figurinos"></div>
-                            <div class="movies"><img src="Central do Brasil, de Walter Sales_ uma bula para o Brasil.jpg" alt="Central do Brasil"></div>
-                            <div class="movies"><img src="A Hora da Estrela (Suzana Amaral) 1.jpg" alt="A Hora da Estrela"></div>
-                            <div class="movies"><img src="O Auto da Compadecida.jpg" alt="O Auto da Compadecida"></div>
-                            <div class="movies"><img src="Figurinos do cinema brasileiro - André do Val.jpg" alt="Figurinos"></div>
+                            <div class="movies"><img src="images/centralBrasil.jpg" alt="Central do Brasil"></div>
+                            <div class="movies"><img src="images/horaEstrela.jpg" alt="A Hora da Estrela"></div>
+                            <div class="movies"><img src="images/compadecida.jpg" alt="O Auto da Compadecida"></div>
+                            <div class="movies"><img src="images/carandiru.jpg" alt="Figurinos"></div>
+                            <div class="movies"><img src="images/tropaElite.jfif" alt="Central do Brasil"></div>
+                            <div class="movies"><img src="images/saneamentoBasico.jpg" alt="A Hora da Estrela"></div>
+                            <div class="movies"><img src="images/queHora.jpg" alt="O Auto da Compadecida"></div>
+                            <div class="movies"><img src="images/cidadeDeus.jpg" alt="Figurinos"></div>
                         </div>
                     </div>
                     <button id="nextBtn"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
@@ -605,17 +422,14 @@
                     .then(subcategoriesData => {
                         const validSubcategories = new Set();
 
-                        // Filtra as subcategorias que têm culturas_id_cultura igual a 3
                         subcategoriesData.subcategorias.forEach(subcategoria => {
                             if (subcategoria.culturas_id_cultura === 3) {
                                 validSubcategories.add(subcategoria.id_subcategoria);
                             }
                         });
 
-                        // Array para armazenar os posts que têm subcategorias válidas
                         const validPosts = [];
 
-                        // Verifica cada post e adiciona apenas os que têm subcategorias válidas
                         postsData.posts.forEach(post => {
                             if (validSubcategories.has(post.subcategorias_id_subcategoria)) {
                                 validPosts.push(post);
@@ -626,7 +440,7 @@
                         const nomeReal = post.imagem_post ? post.imagem_post.split("/").pop() : null;
                        console.log(post)
                         cardFilmes.innerHTML+=`
-                        <div class="banner">
+                        <div class="bannner">
                             <div class="topo">
                                 <h1>${post.nome_post}</h1>
                             </div>

@@ -8,6 +8,244 @@
     <title>Literatura</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+<style>
+    .containerLiteratura {
+        position: relative;
+        text-align: center;
+        color: white;
+        background-image: url('./pintura3.jpg'); 
+        background-size: cover;
+        background-position: center;
+        padding: 50px;
+        width: 100%; 
+        min-height: 90vh; 
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .border-boxLit {
+        position: relative;
+        padding: 50px;
+        border: 2px solid white;
+        border-radius: 10px;
+        display: inline-block;
+        z-index: 1; 
+    }
+
+    .titleLit {
+        font-size: 4rem;
+        letter-spacing: 2px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        font-family: 'Playfair Display', serif;
+    }
+
+    .subtitleLit {
+        font-size: 2rem;
+        font-style: italic;
+        margin-bottom: 20px;
+    }
+
+    .border-boxLit::before, .border-boxLit::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 2px solid white;
+        border-radius: 10px;
+        top: 0;
+        left: 0;
+        z-index: -1; 
+        transition: all 0.3s ease;
+    }
+
+    .border-boxLit::before {
+        top: -10px;
+        left: -10px;
+    }
+
+    .border-boxLit::after {
+        top: 10px;
+        left: 10px;
+    }
+    section.historical-period {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        padding-left: 20px;
+        width: 100%;
+        margin: 20px auto;
+        border-radius: 15px;
+        background-color: #f7f7f7;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        justify-content: space-between;
+        height: 400px;
+    }
+
+    .period-content {
+        flex: 1;
+    }
+
+    .period-content h2 {
+        font-size: 28px;
+        margin-bottom: 10px;
+        color: #01261F; 
+    }
+
+    .period-content p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    .period-image {
+        flex: 1;
+        display: flex; 
+        justify-content: flex-end;
+    }
+
+    .period-image img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover; 
+        margin: 0; 
+        padding: 0;
+        border-radius: 0 15px 15px 0; 
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    .btn-authors {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 10px 20px;
+        background-color: #1C8C4D; 
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-authors:hover {
+    background-color: #057042; 
+    }
+    .geLiteratura-card-container {
+        display: flex;
+        flex-direction: column;
+        background-color: #000;
+        color: white;
+        width: 260px; 
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+        margin: 10px;
+        height: 370px;
+        justify-content: space-around;
+    }
+    .geLiteratura-card-image{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+
+    }
+    .imgAutor1 {
+        width: 65%;
+        height: 160px;
+        border-radius: 100%;
+    }
+
+    .geLiteratura-card-content {
+        padding: 18px; 
+    }
+
+    .geLiteratura-title {
+        font-size: 16px; 
+        font-weight: bold;
+    }
+
+    .geLiteratura-date {
+        font-size: 13px; 
+        margin-bottom: 9px; 
+        color: #888;
+    }
+
+    .geLiteratura-details {
+        font-size: 13px; 
+        margin-bottom: 18px; 
+    }
+
+    .geLiteratura-medium,
+    .geLiteratura-dimensions {
+        margin-bottom: 9px;
+    }
+
+    .geLiteratura-description {
+        font-size: 11px; 
+        color: #ccc;
+    }
+
+    .geLiteratura-read-more {
+        display: inline-block;
+        margin-top: 9px; 
+        padding: 9px 18px; 
+        background-color: #ccc;
+        color: black;
+        text-decoration: none;
+        border-radius: 10px;
+    }
+
+    .geLiteratura-read-more:hover {
+        background-color: #a5a4a4;
+    }
+
+    .geLiteratura-history-label {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: rotate(-90deg);
+        transform-origin: left top 0;
+        background-color: #ccc;
+        padding: 5px 20px;
+        font-size: 14px; 
+        color: white;
+    }
+
+    .autor {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        border-radius: 10px;
+        background-color: #dedede;
+        justify-content: space-between;
+        height: 430px;
+    }
+
+    .imgAutor {
+        width: 50%; 
+        height: 430px; 
+        object-fit: cover; 
+        border-radius: 10px;
+    }
+    .autoresCards{
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        padding: 20px;
+    }
+    .imgAutor-container{
+        width: 50%;
+        height: 430px;
+        border-radius: 10px;
+        background-color: #000;
+    }
+
+</style>
 <body class="body_lit">
     <nav>
         <div class="menu-toggle" id="menu-toggle">
@@ -65,33 +303,80 @@
             <button class="bt_login"><a class="link_login" href="login.html">Login</a></button>
         </div>
     </nav>
-      <div class="time">
-        <h1>Introdução</h1>
-        <br>
-        <p>A literatura brasileira é um mosaico vibrante de histórias, estilos e vozes, refletindo a diversidade cultural e histórica do país. Desde os primeiros relatos dos exploradores portugueses até as complexas narrativas contemporâneas, ela oferece um panorama rico e fascinante da evolução social e cultural do Brasil.</p>
-      </div>
+        <div class="containerLiteratura">
+            <div class="border-boxLit">
+                <h1 class="titleLit">Literatura Brasileira</h1>
+                <h2 class="subtitleLit">Conheça nossos livros e autores</h2>
+            </div>
+        </div>
       <div class="linha_do_tempo">
-          <div class="linha_tempo">
-              <div class="timeline">
-                  <div class="line"></div>
-                  <div class="number"></div>
-                  <div class="number"></div>
-                  <div class="number"></div>
-                  <div class="number"></div>
-                  <div class="number"></div>
-                  <div class="number"></div>
-                  <div class="number"></div>
-                  <div class="number"></div>
-                  <div class="number"></div>
-                  <div class="number"></div>
-              </div>
-          </div>
           <div class="linha_tempo_card">
-              <div id="timeline" class="timeline">
-                
-              </div>
+              <div id="timeline" class="timeline"></div>
           </div>
       </div>
+      <section class="historical-period">
+        <div class="period-content">
+          <h2>Era Colonial no Brasil</h2>
+          <p>
+            A Era Colonial no Brasil se estende do século XVI até o início do século XIX, caracterizada pela exploração das riquezas naturais, principalmente do pau-brasil, e pela formação dos primeiros núcleos de povoamento. A colonização foi marcada pela chegada dos portugueses e a implantação de sistemas econômicos baseados na monocultura e no trabalho escravo.
+          </p>
+          <a href="#colonial-authors" class="btn-authors">Conheça os autores desse período</a>
+        </div>
+        <div class="period-image">
+          <img src="pintura.jpg" alt="Imagem da Era Colonial no Brasil">
+        </div>
+      </section>
+      <section class="autor">
+        <div class="imgAutor-container">
+            <h1></h1>
+        </div>
+        <div class="autoresCards">
+            <div class="geLiteratura-card-container">
+                <div class="geLiteratura-card-image">
+                    <img class="imgAutor1" src="images/arqui_neoclassica.jpg" alt="Mona Lisa">
+                </div>
+                <div class="geLiteratura-card-content">
+                    <h2 class="geLiteratura-title">Carlos Drummond de Andrade</h2>
+                    <p class="geLiteratura-date">1902 - 1987</p>
+                    <div class="geLiteratura-details">
+                        <div class="geLiteratura-description">
+                            <p>Ele foi um poeta mineiro da segunda geração do Modernismo Brasileiro. Além da poesia, ele também se dedicou aos contos e às crônicas. Drummond é visto por muitos como o maior poeta brasileiro que já existiu. Seus poemas já estão na memória coletiva do povo brasileiro.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="geLiteratura-card-container">
+                <div class="geLiteratura-card-image">
+                    <img class="imgAutor1" src="images/arqui_ecletica.jpg" alt="Mona Lisa">
+                </div>
+                <div class="geLiteratura-card-content">
+                    <h2 class="geLiteratura-title">Carlos Drummond de Andrade</h2>
+                    <p class="geLiteratura-date">1902 - 1987</p>
+                    <div class="geLiteratura-details">
+                        <div class="geLiteratura-description">
+                            <p>Ele foi um poeta mineiro da segunda geração do Modernismo Brasileiro. Além da poesia, ele também se dedicou aos contos e às crônicas. Drummond é visto por muitos como o maior poeta brasileiro que já existiu. Seus poemas já estão na memória coletiva do povo brasileiro.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="geLiteratura-card-container">
+                <div class="geLiteratura-card-image">
+                    <img class="imgAutor1" src="images/arqui_colonial.jpg" alt="Mona Lisa">
+                </div>
+                <div class="geLiteratura-card-content">
+                    <h2 class="geLiteratura-title">Carlos Drummond de Andrade</h2>
+                    <p class="geLiteratura-date">1902 - 1987</p>
+                    <div class="geLiteratura-details">
+                        <div class="geLiteratura-description">
+                            <p>Ele foi um poeta mineiro da segunda geração do Modernismo Brasileiro. Além da poesia, ele também se dedicou aos contos e às crônicas. Drummond é visto por muitos como o maior poeta brasileiro que já existiu. Seus poemas já estão na memória coletiva do povo brasileiro.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
         
     <footer>
         <div class="footer-containerGe">

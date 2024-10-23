@@ -82,7 +82,7 @@
         background-color: #f7f7f7;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         justify-content: space-between;
-        height: 400px;
+        height: 500px; 
     }
 
     .period-content {
@@ -109,13 +109,14 @@
 
     .period-image img {
         width: 100%;
-        height: 400px;
+        height: 500px; 
         object-fit: cover; 
         margin: 0; 
         padding: 0;
         border-radius: 0 15px 15px 0; 
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
+
     .btn-authors {
         display: inline-block;
         margin-top: 25px;
@@ -136,13 +137,14 @@
         flex-direction: column;
         background-color: #000;
         color: white;
-        width: 260px; 
+        width: 280px; 
         border-radius: 20px;
         overflow: hidden;
         position: relative;
         margin: 10px;
-        height: 370px;
+        min-height: 370px;
         justify-content: space-around;
+        transition: transform 0.3s ease;
     }
     .geLiteratura-card-image{
         width: 100%;
@@ -219,30 +221,229 @@
         width: 100%;
         align-items: center;
         border-radius: 10px;
-        background-color: #dedede;
+        background-image: url(./pexels-catcaryn-938165.jpg);
+        background-size: cover;
+        background-position: center; 
         justify-content: space-between;
-        height: 430px;
+        height: 90vh;
+        position: relative;
+        flex-direction: column;
+    }
+    .tituloautores{
+        width: 100%;
+        height: 150px;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        z-index: 3;
+        font-size: 1.8rem;
+        color: white;
     }
 
-    .imgAutor {
-        width: 50%; 
-        height: 430px; 
-        object-fit: cover; 
-        border-radius: 10px;
+    .autor::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); 
+        z-index: 1; 
     }
+
     .autoresCards{
-        width: 60%;
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: row;
+        position: relative;
         padding: 20px;
+        z-index: 2;
+    }
+    .geLiteratura-card-container:hover {
+        transform: scale(1.05); 
     }
     .imgAutor-container{
         width: 50%;
         height: 430px;
         border-radius: 10px;
         background-color: #000;
+    }
+
+    .modal {
+        display: none; 
+        position: fixed; 
+        z-index: 5; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        overflow: auto; 
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4); 
+        
+    }
+
+    .modal-content {
+        background-color: #fefefe; 
+        margin: 20px auto; 
+        padding: 0; 
+        width: 45%; 
+        position: relative;
+        border-radius: 15px;
+        min-height: 550px;
+    }
+
+    .modal-header {
+        background-color: rgb(0, 0, 0); 
+        padding: 0; 
+        width: 100%; 
+        height: 270px;
+        border-radius: 15px 15px 0px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: left;
+    }
+    .modal-header h1 {
+        margin: 10px auto;
+    }
+
+    .close {
+        color: white; 
+        font-size: 28px; 
+        font-weight: bold;
+        position: absolute; 
+        top: 10px;
+        right: 20px; 
+        cursor: pointer; 
+    }
+
+    .modal-body {
+        display: flex; 
+        flex-wrap: wrap; 
+        gap: 20px; 
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .book-card {
+        position: relative; 
+        background-color: #f8f8f8; 
+        border: 1px solid #ccc; 
+        border-radius: 8px; 
+        width: 180px; 
+        height: 220px;
+        overflow: hidden; 
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        transition: transform 0.2s; 
+    }
+
+    .book-card:hover {
+        transform: scale(1.05);
+    }
+
+    .book-cover {
+        width: 100%; 
+        height: 100%; 
+        display: block; 
+        transition: opacity 0.3s; 
+    }
+    .book-description {
+        position: absolute; 
+        top: 50%;
+        left: 50%; 
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 10px; 
+        text-align: center; 
+        opacity: 0; 
+        transition: opacity 0.3s; 
+        font-size: 10px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .book-card:hover .book-description {
+        opacity: 1; 
+    }
+    .loader {
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        --book-color: #ffffff;
+        --book-cover-color: #b31616;
+        border-bottom: 3px solid var(--book-cover-color)
+    }
+    .book {
+        width: 150px;
+        height: 13px;
+        background-color: var(--book-color);
+        border-bottom: 2px solid var(--book-cover-color);
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+        position: relative;
+    }
+    .page {
+        width: 50%;
+        height: 2px;
+        background-color: var(--book-color);
+        animation: paging 0.7s ease-out infinite;
+        transform-origin: left;
+    }
+    .page2 {
+        width: 50%;
+        height: 2px;
+        background-color: var(--book-color);
+        animation: paging 0.8s ease-out infinite;
+        transform-origin: left;
+        position: absolute;
+    }
+    @keyframes paging {
+    10% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(-180deg);
+    }
+    }
+
+    .livrosss{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    button {
+        background-color: #b31616; 
+        color: white; 
+        border: none; 
+        border-radius: 8px; 
+        font-size: 16px; 
+        font-weight: bold;
+        cursor: pointer; 
+        transition: background-color 0.3s ease, transform 0.2s ease; 
+        width: 100%;
+        padding: 10px;
+    }
+
+    button:hover {
+        background-color: #a11515; 
+    }
+
+    button:active {
+        transform: scale(0.98);
     }
 
 </style>
@@ -314,6 +515,7 @@
               <div id="timeline" class="timeline"></div>
           </div>
       </div>
+      <div id="historical-period">
       <section class="historical-period">
         <div class="period-content">
           <h2>Era Colonial no Brasil</h2>
@@ -326,58 +528,102 @@
           <img src="pintura.jpg" alt="Imagem da Era Colonial no Brasil">
         </div>
       </section>
-      <section class="autor">
-        <div class="imgAutor-container">
-            <h1></h1>
-        </div>
+      <section class="autor" id="authors">
+        <div class="tituloautores"><h1>Autores</h1></div>
         <div class="autoresCards">
             <div class="geLiteratura-card-container">
-                <div class="geLiteratura-card-image">
-                    <img class="imgAutor1" src="images/arqui_neoclassica.jpg" alt="Mona Lisa">
+            <div class="geLiteratura-card-image">
+                <img class="imgAutor1" src="images/arqui_neoclassica.jpg" alt="Carlos Drummond de Andrade">
+            </div>
+            <div class="geLiteratura-card-content">
+                <h2 class="geLiteratura-title">Carlos Drummond de Andrade</h2>
+                <p class="geLiteratura-date">1902 - 1987</p>
+                <div class="geLiteratura-details">
+                    <p class="geLiteratura-description">
+                        Ele foi um poeta mineiro da segunda geração do Modernismo Brasileiro. Além da poesia, ele também se dedicou aos contos e às crônicas. Drummond é visto por muitos como o maior poeta brasileiro que já existiu. Seus poemas já estão na memória coletiva do povo brasileiro.
+                    </p>
                 </div>
-                <div class="geLiteratura-card-content">
-                    <h2 class="geLiteratura-title">Carlos Drummond de Andrade</h2>
-                    <p class="geLiteratura-date">1902 - 1987</p>
-                    <div class="geLiteratura-details">
-                        <div class="geLiteratura-description">
-                            <p>Ele foi um poeta mineiro da segunda geração do Modernismo Brasileiro. Além da poesia, ele também se dedicou aos contos e às crônicas. Drummond é visto por muitos como o maior poeta brasileiro que já existiu. Seus poemas já estão na memória coletiva do povo brasileiro.</p>
-                        </div>
-                    </div>
-                </div>
+                <button onclick="openModal()">Livros</button>
+            </div>
             </div>
             <div class="geLiteratura-card-container">
                 <div class="geLiteratura-card-image">
-                    <img class="imgAutor1" src="images/arqui_ecletica.jpg" alt="Mona Lisa">
+                    <img class="imgAutor1" src="images/arqui_neoclassica.jpg" alt="Carlos Drummond de Andrade">
                 </div>
                 <div class="geLiteratura-card-content">
                     <h2 class="geLiteratura-title">Carlos Drummond de Andrade</h2>
                     <p class="geLiteratura-date">1902 - 1987</p>
                     <div class="geLiteratura-details">
-                        <div class="geLiteratura-description">
-                            <p>Ele foi um poeta mineiro da segunda geração do Modernismo Brasileiro. Além da poesia, ele também se dedicou aos contos e às crônicas. Drummond é visto por muitos como o maior poeta brasileiro que já existiu. Seus poemas já estão na memória coletiva do povo brasileiro.</p>
-                        </div>
+                        <p class="geLiteratura-description">
+                            Ele foi um poeta mineiro da segunda geração do Modernismo Brasileiro. Além da poesia, ele também se dedicou aos contos e às crônicas. Drummond é visto por muitos como o maior poeta brasileiro que já existiu. Seus poemas já estão na memória coletiva do povo brasileiro.
+                        </p>
                     </div>
+                    <button onclick="openModal()">Livros</button>
                 </div>
             </div>
             <div class="geLiteratura-card-container">
-                <div class="geLiteratura-card-image">
-                    <img class="imgAutor1" src="images/arqui_colonial.jpg" alt="Mona Lisa">
-                </div>
-                <div class="geLiteratura-card-content">
-                    <h2 class="geLiteratura-title">Carlos Drummond de Andrade</h2>
-                    <p class="geLiteratura-date">1902 - 1987</p>
-                    <div class="geLiteratura-details">
-                        <div class="geLiteratura-description">
-                            <p>Ele foi um poeta mineiro da segunda geração do Modernismo Brasileiro. Além da poesia, ele também se dedicou aos contos e às crônicas. Drummond é visto por muitos como o maior poeta brasileiro que já existiu. Seus poemas já estão na memória coletiva do povo brasileiro.</p>
-                        </div>
+                    <div class="geLiteratura-card-image">
+                        <img class="imgAutor1" src="images/arqui_neoclassica.jpg" alt="Carlos Drummond de Andrade">
                     </div>
-                </div>
+                    <div class="geLiteratura-card-content">
+                        <h2 class="geLiteratura-title">Carlos Drummond de Andrade</h2>
+                        <p class="geLiteratura-date">1902 - 1987</p>
+                        <div class="geLiteratura-details">
+                            <p class="geLiteratura-description">
+                                Ele foi um poeta mineiro da segunda geração do Modernismo Brasileiro. Além da poesia, ele também se dedicou aos contos e às crônicas. Drummond é visto por muitos como o maior poeta brasileiro que já existiu. Seus poemas já estão na memória coletiva do povo brasileiro.
+                            </p>
+                        </div>
+                        <button onclick="openModal()">Livros</button>
+                    </div>
+            </div>
+            <div class="geLiteratura-card-container">
+                    <div class="geLiteratura-card-image">
+                        <img class="imgAutor1" src="images/arqui_neoclassica.jpg" alt="Carlos Drummond de Andrade">
+                    </div>
+                    <div class="geLiteratura-card-content">
+                        <h2 class="geLiteratura-title">Carlos Drummond de Andrade</h2>
+                        <p class="geLiteratura-date">1902 - 1987</p>
+                        <div class="geLiteratura-details">
+                            <p class="geLiteratura-description">
+                                Ele foi um poeta mineiro da segunda geração do Modernismo Brasileiro. Além da poesia, ele também se dedicou aos contos e às crônicas. Drummond é visto por muitos como o maior poeta brasileiro que já existiu. Seus poemas já estão na memória coletiva do povo brasileiro.
+                            </p>
+                        </div>
+                        <button onclick="openModal()">Livros</button>
+                    </div>
             </div>
         </div>
     </section>
-    
-    
-        
+</div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">
+                <div class="loader">
+                    <div class="book">
+                      <div class="page"></div>
+                      <div class="page page2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="livrosss">
+                    <div class="book-card">
+                        <img src="./pexels-catcaryn-938165.jpg" alt="Capa do Livro 1" class="book-cover">
+                        <div class="book-description">"Capitães da Areia" é um romance de Jorge Amado que retrata a vida de crianças abandonadas nas ruas de Salvador. A obra explora suas lutas diárias e a busca por pertencimento, destacando a solidariedade entre os jovens. Com uma prosa rica, Amado oferece um retrato vívido da sociedade brasileira, convidando à reflexão sobre a realidade dos marginalizados.</div> <!-- Adicione a descrição do livro -->
+                    </div>
+                    <div class="book-card">
+                        <img src="./pexels-catcaryn-938165.jpg" alt="Capa do Livro 1" class="book-cover">
+                        <div class="book-description">"Capitães da Areia" é um romance de Jorge Amado que retrata a vida de crianças abandonadas nas ruas de Salvador. A obra explora suas lutas diárias e a busca por pertencimento, destacando a solidariedade entre os jovens. Com uma prosa rica, Amado oferece um retrato vívido da sociedade brasileira, convidando à reflexão sobre a realidade dos marginalizados.</div> <!-- Adicione a descrição do livro -->
+                    </div>
+                    <div class="book-card">
+                        <img src="./pexels-catcaryn-938165.jpg" alt="Capa do Livro 1" class="book-cover">
+                        <div class="book-description">"Capitães da Areia" é um romance de Jorge Amado que retrata a vida de crianças abandonadas nas ruas de Salvador. A obra explora suas lutas diárias e a busca por pertencimento, destacando a solidariedade entre os jovens. Com uma prosa rica, Amado oferece um retrato vívido da sociedade brasileira, convidando à reflexão sobre a realidade dos marginalizados.</div> <!-- Adicione a descrição do livro -->
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
     <footer>
         <div class="footer-containerGe">
             <div class="footer-sectionGe">
@@ -503,21 +749,53 @@
     };
     function scrollToPeriod(periodId) {
     const element = document.getElementById(periodId);
-   
     element.scrollIntoView({ behavior: 'smooth' });
-}
+    }
+
+    function openModal() {
+        document.getElementById("modal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+    }
+
+    // Adicionando evento de clique ao "X" para fechar o modal
+    document.querySelector('.close').addEventListener('click', closeModal);
+
+    // Se você quiser fechar o modal ao clicar fora dele, adicione o seguinte
+    window.onclick = function(event) {
+        const modal = document.getElementById("modal");
+        if (event.target === modal) {
+            closeModal();
+        }
+    };
+
+    document.querySelector('.btn-authors').addEventListener('click', function(event) {
+    event.preventDefault(); // Previne o comportamento padrão do link
+    const targetSection = document.querySelector('#authors');
+    
+    if (targetSection) {
+        targetSection.scrollIntoView({
+            behavior: 'smooth', // Faz a rolagem ser suave
+            block: 'start' // Posiciona a seção no início da visualização
+        });
+    }
+});
+
+
 </script>
 <script>    
     function fetchPosts() {
-        fetch('http://10.188.35.110:8000/posts')
+        fetch('http://10.188.35.64:8000/posts')
             .then(response => response.json())
             .then(postsData => {
-                fetch('http://10.188.35.110:8000/subcategorias')
+                fetch('http://10.188.35.64:8000/subcategorias')
                     .then(subcategoriesResponse => subcategoriesResponse.json())
                     .then(subcategoriesData => {
                         const validSubcategories = new Map();
                         const timeline = document.getElementById("timeline")
-                        const periodos = document.getElementById("periodos")
+                        const periodos = document.getElementById("historical-period")
 
                         subcategoriesData.subcategorias.forEach(subcategoria => {
                             if (subcategoria.culturas_id_cultura === 1) {
@@ -538,7 +816,7 @@
                         });
                         
                         validPosts.forEach(post => {
-                            fetch('http://10.188.35.110:8000/responsaveis')  .then(responsaveisResponse => responsaveisResponse.json())
+                            fetch('http://10.188.35.64:8000/responsaveis')  .then(responsaveisResponse => responsaveisResponse.json())
                             .then(responsaveisData => {
                                 const validResonsaveis = [];
                             responsaveisData.responsaveis.forEach(responsaveis => {
@@ -567,49 +845,86 @@
                             `
 
                             periodos.innerHTML+=`
-                            <div class="bgimg-1" id="${nomeSubcategoria}">
-                                <img class="img_card_autor" src="http://10.188.35.110:8000/postsimg/${imagempost}" alt="">
-                                <div class="caption">
-                                <span class="border">${nomeSubcategoria}</span>
-                                </div>
-                            </div>
-                            <div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
-                            <p>${post.descricao_post}</p>
-                            </div>
-                            
-                            <div class="bgimg-2">
-                            <div class="caption">
-                            <span class="border" style="background-color:#282E34;font-size:25px;color: #f7f7f7;">AUTOR</span>
-                            </div>
-                            </div>
-                            <div style="position:relative;">
-                            <div style="color:#ddd; background-color:#282E34; text-align:center; padding:50px 80px; text-align: justify;display: flex; flex-direction: row; justify-content: space-between;">
-                                <div class="card_autor">
-                                    <img class="img_card_autor" src="http://10.188.35.110:8000/responsaveisimg/${nomeimagem}" alt="">
-                                </div>
-                            </div>
-                            </div>
-                            
-                            <div class="bgimg-3">
-                            <div class="caption">
-                            <span class="border" style="background-color:#282E34;font-size:25px;color: #f7f7f7;">LIVROS</span>
-                            </div>
-                            </div>
-                            
-                            <div style="position:relative;">
-                            <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify; display: flex; flex-direction: row; justify-content: space-between;">
-                                <div class="card_livro">
-                                    <img class="img_card_livro" src=""alt="">
-                                </div>
-                                <div class="card_livro">
-                                    <img class="img_card_livro" src="" alt="">
-                                </div>
-                                <div class="card_livro">
-                                    <img class="img_card_livro" src="" alt="">
-                                </div>
-                            </div>
-                            </div>
 
+                            <div class="period-content">
+             <h2 id="${nomeSubcategoria}">${nomeSubcategoria}</h2>
+            <p>
+             ${post.descricao_post}
+            </p>
+            <a href="#colonial-authors" class="btn-authors">Conheça os autores desse período</a>
+            </div>
+            <div class="period-image">
+            <img src="http://10.188.35.64:8000/postsimg/${imagempost}" alt="Imagem da Era Colonial no Brasil">
+            </div>
+
+
+            <section class="autor" id="authors">
+        <div class="tituloautores"><h1>Autores</h1></div>
+        <div class="autoresCards">
+            <div class="geLiteratura-card-container">
+            <div class="geLiteratura-card-image">
+                <img class="imgAutor1" src="http://10.188.35.64:8000/responsaveisimg/${nomeimagem}" alt="Carlos Drummond de Andrade">
+            </div>
+            <div class="geLiteratura-card-content">
+                <h2 class="geLiteratura-title">Carlos Drummond de Andrade</h2>
+                <p class="geLiteratura-date">1902 - 1987</p>
+                <div class="geLiteratura-details">
+                    <p class="geLiteratura-description">
+                        Ele foi um poeta mineiro da segunda geração do Modernismo Brasileiro. Além da poesia, ele também se dedicou aos contos e às crônicas. Drummond é visto por muitos como o maior poeta brasileiro que já existiu. Seus poemas já estão na memória coletiva do povo brasileiro.
+                    </p>
+                </div>
+                <button onclick="openModal()">Livros</button>
+            </div>
+            </div>
+            <div class="geLiteratura-card-container">
+                <div class="geLiteratura-card-image">
+                    <img class="imgAutor1" src="images/arqui_neoclassica.jpg" alt="Carlos Drummond de Andrade">
+                </div>
+                <div class="geLiteratura-card-content">
+                    <h2 class="geLiteratura-title">Carlos Drummond de Andrade</h2>
+                    <p class="geLiteratura-date">1902 - 1987</p>
+                    <div class="geLiteratura-details">
+                        <p class="geLiteratura-description">
+                            Ele foi um poeta mineiro da segunda geração do Modernismo Brasileiro. Além da poesia, ele também se dedicou aos contos e às crônicas. Drummond é visto por muitos como o maior poeta brasileiro que já existiu. Seus poemas já estão na memória coletiva do povo brasileiro.
+                        </p>
+                    </div>
+                    <button onclick="openModal()">Livros</button>
+                </div>
+            </div>
+            <div class="geLiteratura-card-container">
+                    <div class="geLiteratura-card-image">
+                        <img class="imgAutor1" src="images/arqui_neoclassica.jpg" alt="Carlos Drummond de Andrade">
+                    </div>
+                    <div class="geLiteratura-card-content">
+                        <h2 class="geLiteratura-title">Carlos Drummond de Andrade</h2>
+                        <p class="geLiteratura-date">1902 - 1987</p>
+                        <div class="geLiteratura-details">
+                            <p class="geLiteratura-description">
+                                Ele foi um poeta mineiro da segunda geração do Modernismo Brasileiro. Além da poesia, ele também se dedicou aos contos e às crônicas. Drummond é visto por muitos como o maior poeta brasileiro que já existiu. Seus poemas já estão na memória coletiva do povo brasileiro.
+                            </p>
+                        </div>
+                        <button onclick="openModal()">Livros</button>
+                    </div>
+            </div>
+            <div class="geLiteratura-card-container">
+                    <div class="geLiteratura-card-image">
+                        <img class="imgAutor1" src="images/arqui_neoclassica.jpg" alt="Carlos Drummond de Andrade">
+                    </div>
+                    <div class="geLiteratura-card-content">
+                        <h2 class="geLiteratura-title">Carlos Drummond de Andrade</h2>
+                        <p class="geLiteratura-date">1902 - 1987</p>
+                        <div class="geLiteratura-details">
+                            <p class="geLiteratura-description">
+                                Ele foi um poeta mineiro da segunda geração do Modernismo Brasileiro. Além da poesia, ele também se dedicou aos contos e às crônicas. Drummond é visto por muitos como o maior poeta brasileiro que já existiu. Seus poemas já estão na memória coletiva do povo brasileiro.
+                            </p>
+                        </div>
+                        <button onclick="openModal()">Livros</button>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+                         
                                     `
                                     console.log(post.nome_post+" "+nomeSubcategoria)
                                 })

@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <style>
+    html {
+        scroll-behavior: smooth;
+    }
     .containerLiteratura {
         position: relative;
         text-align: center;
@@ -70,6 +73,388 @@
     .border-boxLit::after {
         top: 10px;
         left: 10px;
+    }
+    .historical-period {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        padding-left: 20px;
+        width: 100%;
+        margin: 20px auto;
+        border-radius: 15px;
+        background-color: #f7f7f7;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        justify-content: space-between;
+        height: 500px; 
+    }
+
+    .period-content {
+        flex: 1;
+    }
+
+    .period-content h2 {
+        font-size: 28px;
+        margin-bottom: 10px;
+        color: #01261F; 
+    }
+
+    .period-content p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    .period-image {
+        flex: 1;
+        display: flex; 
+        justify-content: flex-end;
+    }
+
+    .period-image img {
+        width: 100%;
+        height: 500px; 
+        object-fit: cover; 
+        margin: 0; 
+        padding: 0;
+        border-radius: 0 15px 15px 0; 
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-authors {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 10px 20px;
+        background-color: #1C8C4D; 
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-authors:hover {
+    background-color: #057042; 
+    }
+    .geLiteratura-card-container {
+        display: flex;
+        flex-direction: column;
+        background-color: #000;
+        color: white;
+        width: 330px; 
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+        margin: 10px;
+        height: 530px;
+        justify-content: space-around;
+        transition: transform 0.3s ease;
+    }
+    .geLiteratura-card-image {
+        width: 80%;
+        height: 200px; /* Define a altura do container da imagem */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden; /* Esconde qualquer parte da imagem fora do contorno */
+        padding: 10px;
+        margin: 10px auto;
+    }
+
+    .imgAutor1, .imgAutor {
+        width: 80%; /* Preenche toda a largura do container */
+        height: 100%; /* Preenche toda a altura do container */
+        object-fit: cover; /* Ajusta a imagem para preencher o espaço sem distorcer */
+        border-radius: 100%; 
+    }
+
+    .geLiteratura-card-content {
+        padding: 18px; 
+    }
+
+    .geLiteratura-title {
+        font-size: 16px; 
+        font-weight: bold;
+    }
+
+    .geLiteratura-date {
+        font-size: 13px; 
+        margin-bottom: 9px; 
+        color: #888;
+    }
+
+    .geLiteratura-details {
+        font-size: 13px; 
+        margin-bottom: 18px; 
+    }
+
+    .geLiteratura-medium,
+    .geLiteratura-dimensions {
+        margin-bottom: 9px;
+    }
+
+    .geLiteratura-description {
+        font-size: 11px; 
+        color: #ccc;
+    }
+
+    .geLiteratura-read-more {
+        display: inline-block;
+        margin-top: 9px; 
+        padding: 9px 18px; 
+        background-color: #ccc;
+        color: black;
+        text-decoration: none;
+        border-radius: 10px;
+    }
+
+    .geLiteratura-read-more:hover {
+        background-color: #a5a4a4;
+    }
+
+    .geLiteratura-history-label {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: rotate(-90deg);
+        transform-origin: left top 0;
+        background-color: #ccc;
+        padding: 5px 20px;
+        font-size: 14px; 
+        color: white;
+    }
+
+    .autor {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        border-radius: 10px;
+        background-image: url(./museu.jpeg);
+        background-size: cover;
+        background-position: center;
+        justify-content: space-between;
+        height: 95vh;
+        position: relative;
+        flex-direction: column;
+        overflow: hidden; /* Garante que as ondas fiquem dentro do contêiner */
+    }
+    .tituloautores{
+        width: 100%;
+        height: 150px;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        z-index: 3;
+        font-size: 1.8rem;
+        color: white;
+    }
+
+    .autor::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); 
+        z-index: 1; 
+    }
+
+    .autoresCards{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        position: relative;
+        padding: 20px;
+        z-index: 2;
+    }
+    .geLiteratura-card-container:hover {
+        transform: scale(1.05); 
+    }
+    .imgAutor-container{
+        width: 60%;
+        height: 430px;
+        border-radius: 10px;
+        background-color: #000;
+    }
+    .imgAutor{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .modal {
+        display: none; 
+        position: fixed; 
+        z-index: 5; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        overflow: auto; 
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4); 
+        
+    }
+
+    .modal-content {
+        background-color: #fefefe; 
+        margin: 20px auto; 
+        padding: 0; 
+        width: 45%; 
+        position: relative;
+        border-radius: 15px;
+        min-height: 550px;
+    }
+
+    .modal-header {
+        background-color: rgb(0, 0, 0); 
+        padding: 0; 
+        width: 100%; 
+        height: 270px;
+        border-radius: 15px 15px 0px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: left;
+    }
+    .modal-header h1 {
+        margin: 10px auto;
+    }
+
+    .close {
+        color: white; 
+        font-size: 28px; 
+        font-weight: bold;
+        position: absolute; 
+        top: 10px;
+        right: 20px; 
+        cursor: pointer; 
+    }
+
+    .modal-body {
+        display: flex; 
+        flex-wrap: wrap; 
+        gap: 20px; 
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .book-card {
+        position: relative; 
+        background-color: #f8f8f8; 
+        border: 1px solid #ccc; 
+        border-radius: 8px; 
+        width: 180px; 
+        height: 220px;
+        overflow: hidden; 
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        transition: transform 0.2s; 
+    }
+
+    .book-card:hover {
+        transform: scale(1.05);
+    }
+
+    .book-cover {
+        width: 100%; 
+        height: 100%; 
+        display: block; 
+        transition: opacity 0.3s; 
+    }
+    .book-description {
+        position: absolute; 
+        top: 50%;
+        left: 50%; 
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 10px; 
+        text-align: center; 
+        opacity: 0; 
+        transition: opacity 0.3s; 
+        font-size: 10px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .book-card:hover .book-description {
+        opacity: 1; 
+    }
+    .loader {
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        --book-color: #ffffff;
+        --book-cover-color: #b31616;
+        border-bottom: 3px solid var(--book-cover-color)
+    }
+    .book {
+        width: 150px;
+        height: 13px;
+        background-color: var(--book-color);
+        border-bottom: 2px solid var(--book-cover-color);
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+        position: relative;
+    }
+    .page {
+        width: 50%;
+        height: 2px;
+        background-color: var(--book-color);
+        animation: paging 0.7s ease-out infinite;
+        transform-origin: left;
+    }
+    .page2 {
+        width: 50%;
+        height: 2px;
+        background-color: var(--book-color);
+        animation: paging 0.8s ease-out infinite;
+        transform-origin: left;
+        position: absolute;
+    }
+    @keyframes paging {
+    10% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(-180deg);
+    }
+    }
+
+    .livrosss{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .button {
+        background-color: #b31616; 
+        color: white; 
+        border: none; 
+        border-radius: 8px; 
+        font-size: 16px; 
+        font-weight: bold;
+        cursor: pointer; 
+        transition: background-color 0.3s ease, transform 0.2s ease; 
+        width: 100%;
+        padding: 10px;
+    }
+
+    .button:hover {
+        background-color: #a11515; 
+    }
+
+    .button:active {
+        transform: scale(0.98);
     }
 
 </style>
@@ -137,31 +522,42 @@
             </div>
         </div>
       <div class="linha_do_tempo">
-          <div class="linha_tempo">
-              <div class="timeline">
-                  <div class="line"></div>
-                  <div class="number"></div>
-                  <div class="number"></div>
-                  <div class="number"></div>
-                  <div class="number"></div>
-                  <div class="number"></div>
-                  <div class="number"></div>
-                  <div class="number"></div>
-                  <div class="number"></div>
-                  <div class="number"></div>
-                  <div class="number"></div>
-              </div>
-          </div>
           <div class="linha_tempo_card">
-              <div id="timeline" class="timeline">
-                
-              </div>
+              <div id="timeline" class="timeline"></div>
           </div>
       </div>
-    <div id="periodos">
-        
+      <div id="historical-period">
     </div>
-        
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">
+                <div class="loader">
+                    <div class="book">
+                      <div class="page"></div>
+                      <div class="page page2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="livrosss">
+                    <div class="book-card">
+                        <img src="./pexels-catcaryn-938165.jpg" alt="Capa do Livro 1" class="book-cover">
+                        <div class="book-description">"Capitães da Areia" é um romance de Jorge Amado que retrata a vida de crianças abandonadas nas ruas de Salvador. A obra explora suas lutas diárias e a busca por pertencimento, destacando a solidariedade entre os jovens. Com uma prosa rica, Amado oferece um retrato vívido da sociedade brasileira, convidando à reflexão sobre a realidade dos marginalizados.</div> <!-- Adicione a descrição do livro -->
+                    </div>
+                    <div class="book-card">
+                        <img src="./pexels-catcaryn-938165.jpg" alt="Capa do Livro 1" class="book-cover">
+                        <div class="book-description">"Capitães da Areia" é um romance de Jorge Amado que retrata a vida de crianças abandonadas nas ruas de Salvador. A obra explora suas lutas diárias e a busca por pertencimento, destacando a solidariedade entre os jovens. Com uma prosa rica, Amado oferece um retrato vívido da sociedade brasileira, convidando à reflexão sobre a realidade dos marginalizados.</div> <!-- Adicione a descrição do livro -->
+                    </div>
+                    <div class="book-card">
+                        <img src="./pexels-catcaryn-938165.jpg" alt="Capa do Livro 1" class="book-cover">
+                        <div class="book-description">"Capitães da Areia" é um romance de Jorge Amado que retrata a vida de crianças abandonadas nas ruas de Salvador. A obra explora suas lutas diárias e a busca por pertencimento, destacando a solidariedade entre os jovens. Com uma prosa rica, Amado oferece um retrato vívido da sociedade brasileira, convidando à reflexão sobre a realidade dos marginalizados.</div> <!-- Adicione a descrição do livro -->
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
     <footer>
         <div class="footer-containerGe">
             <div class="footer-sectionGe">
@@ -287,125 +683,141 @@
     };
     function scrollToPeriod(periodId) {
     const element = document.getElementById(periodId);
-   
     element.scrollIntoView({ behavior: 'smooth' });
-}
+    }
+
+    function openModal() {
+        document.getElementById("modal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+    }
+
+    // Adicionando evento de clique ao "X" para fechar o modal
+    document.querySelector('.close').addEventListener('click', closeModal);
+
+    // Se você quiser fechar o modal ao clicar fora dele, adicione o seguinte
+    window.onclick = function(event) {
+        const modal = document.getElementById("modal");
+        if (event.target === modal) {
+            closeModal();
+        }
+    };
+
+    document.querySelector('.btn-authors').addEventListener('click', function(event) {
+    event.preventDefault(); // Previne o comportamento padrão do link
+    const targetSection = document.querySelector('#authors');
+    
+    if (targetSection) {
+        targetSection.scrollIntoView({
+            behavior: 'smooth', // Faz a rolagem ser suave
+            block: 'start' // Posiciona a seção no início da visualização
+        });
+    }
+});
+
+
 </script>
 <script>    
-    function fetchPosts() {
-        fetch('http://10.188.35.64:8000/posts')
-            .then(response => response.json())
-            .then(postsData => {
-                fetch('http://10.188.35.64:8000/subcategorias')
-                    .then(subcategoriesResponse => subcategoriesResponse.json())
-                    .then(subcategoriesData => {
-                        const validSubcategories = new Map();
-                        const timeline = document.getElementById("timeline")
-                        const periodos = document.getElementById("periodos")
+  function fetchPosts() {
+    fetch('http://10.188.35.64:8000/posts')
+        .then(response => response.json())
+        .then(postsData => {
+            fetch('http://10.188.35.64:8000/subcategorias')
+                .then(subcategoriesResponse => subcategoriesResponse.json())
+                .then(subcategoriesData => {
+                    const validSubcategories = new Map();
+                    const timeline = document.getElementById("timeline");
+                    const periodos = document.getElementById("historical-period");
 
-                        subcategoriesData.subcategorias.forEach(subcategoria => {
-                            if (subcategoria.culturas_id_cultura === 1) {
-                                validSubcategories.set(subcategoria.id_subcategoria,subcategoria.nome_subcategoria);
-                                
-                                
-                            }
-                        });
-                        console.log(validSubcategories)
-                        const validPosts = [];
+                    subcategoriesData.subcategorias.forEach(subcategoria => {
+                        if (subcategoria.culturas_id_cultura === 1) {
+                            validSubcategories.set(subcategoria.id_subcategoria, subcategoria.nome_subcategoria);
+                        }
+                    });
 
-                        postsData.posts.forEach(post => {
-                            if (validSubcategories.has(post.subcategorias_id_subcategoria,)) {
-                                validPosts.push(post);
-                            
-                            }
-                        
-                        });
-                        
-                        validPosts.forEach(post => {
-                            fetch('http://10.188.35.64:8000/responsaveis')  .then(responsaveisResponse => responsaveisResponse.json())
+                    const validPosts = [];
+                    postsData.posts.forEach(post => {
+                        if (validSubcategories.has(post.subcategorias_id_subcategoria)) {
+                            validPosts.push(post);
+                        }
+                    });
+
+                    validPosts.forEach(post => {
+                        fetch('http://10.188.35.64:8000/responsaveis')
+                            .then(responsaveisResponse => responsaveisResponse.json())
                             .then(responsaveisData => {
-                                const validResonsaveis = [];
-                            responsaveisData.responsaveis.forEach(responsaveis => {
-                            
+                                const validResponsaveis = [];
+                                responsaveisData.responsaveis.forEach(responsaveis => {
+                                    if (responsaveis.posts_id_post === post.id_post) {
+                                        validResponsaveis.push({
+                                            nome: responsaveis.nome,
+                                            data_in: responsaveis.data_in,
+                                            data_out: responsaveis.data_out,
+                                            biografia: responsaveis.biografia,
+                                            foto: responsaveis.foto
+                                        });
+                                    }
+                                });
 
-                                if (responsaveis.posts_id_post === post.id_post) {
-                                    validResonsaveis.push({
-                                        nome: responsaveis.nome,
-                                        data_in: responsaveis.data_in,
-                                        data_out: responsaveis.data_out,
-                                        biografia: responsaveis.biografia,
-                                        foto: responsaveis.foto
-                                    });
-                                }
-                            });
+                                const nomeSubcategoria = validSubcategories.get(post.subcategorias_id_subcategoria);
+                                const imagempost = post.imagem_post ? post.imagem_post.split("/").pop() : null;
+                                const authorsSectionId = `authors-${post.id_post}`;
 
-            console.log(validResonsaveis[0].foto); 
-                            
-                            const nomeSubcategoria = validSubcategories.get(post.subcategorias_id_subcategoria);
-                            console.log("nome da subcategoria"+nomeSubcategoria)
-                            const nomeimagem = validResonsaveis[0].foto ? validResonsaveis[0].foto.split("/").pop() : null;
-                            const imagempost = post.imagem_post ? post.imagem_post.split("/").pop() : null;
-                      
-                            timeline.innerHTML+=`
-                            <div class="card_periodo" onclick="scrollToPeriod('${nomeSubcategoria}')"><h3>${nomeSubcategoria}</h3> <h4>(${post.nome_post})</h4></div>
-                            `
+                                timeline.innerHTML += `
+                                    <div class="card_periodo" onclick="scrollToPeriod('${nomeSubcategoria}')"><h3>${nomeSubcategoria}</h3> <h4>(${post.nome_post})</h4></div>
+                                `;
 
-                            periodos.innerHTML+=`
-                            <div class="bgimg-1" id="${nomeSubcategoria}">
-                                <img class="img_card_autor" src="http://10.188.35.64:8000/postsimg/${imagempost}" alt="">
-                                <div class="caption">
-                                <span class="border">${nomeSubcategoria}</span>
-                                </div>
-                            </div>
-                            <div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
-                            <p>${post.descricao_post}</p>
-                            </div>
-                            
-                            <div class="bgimg-2">
-                            <div class="caption">
-                            <span class="border" style="background-color:#282E34;font-size:25px;color: #f7f7f7;">AUTOR</span>
-                            </div>
-                            </div>
-                            <div style="position:relative;">
-                            <div style="color:#ddd; background-color:#282E34; text-align:center; padding:50px 80px; text-align: justify;display: flex; flex-direction: row; justify-content: space-between;">
-                                <div class="card_autor">
-                                    <img class="img_card_autor" src="http://10.188.35.64:8000/responsaveisimg/${nomeimagem}" alt="">
-                                </div>
-                            </div>
-                            </div>
-                            
-                            <div class="bgimg-3">
-                            <div class="caption">
-                            <span class="border" style="background-color:#282E34;font-size:25px;color: #f7f7f7;">LIVROS</span>
-                            </div>
-                            </div>
-                            
-                            <div style="position:relative;">
-                            <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify; display: flex; flex-direction: row; justify-content: space-between;">
-                                <div class="card_livro">
-                                    <img class="img_card_livro" src=""alt="">
-                                </div>
-                                <div class="card_livro">
-                                    <img class="img_card_livro" src="" alt="">
-                                </div>
-                                <div class="card_livro">
-                                    <img class="img_card_livro" src="" alt="">
-                                </div>
-                            </div>
-                            </div>
-
-                                    `
-                                    console.log(post.nome_post+" "+nomeSubcategoria)
-                                })
-                                
+                                periodos.innerHTML += `
+                                    <div class="historical-period">
+                                        <div class="period-content">
+                                            <h2 id="${nomeSubcategoria}">${nomeSubcategoria}</h2>
+                                            <p>${post.descricao_post}</p>
+                                            <a href="#${authorsSectionId}" class="btn-authors">Conheça os autores desse período</a>
+                                        </div>
+                                        <div class="period-image">
+                                            <img src="http://10.188.35.64:8000/postsimg/${imagempost}" alt="Imagem da Era Colonial no Brasil">
+                                        </div>
+                                    </div>
+                                    <section class="autor" id="${authorsSectionId}">
+                                        <div class="tituloautores"><h1>Autores</h1></div>
+                                        <div class="autoresCards">
+                                            ${validResponsaveis.map(autor => `
+                                                <div class="geLiteratura-card-container">
+                                                    <div class="geLiteratura-card-image">
+                                                        <img class="imgAutor" src="http://10.188.35.64:8000/responsaveisimg/${autor.foto ? autor.foto.split("/").pop() : 'default.jpg'}" alt="${autor.nome}">
+                                                    </div>
+                                                    <div class="geLiteratura-card-content">
+                                                        <h2 class="geLiteratura-title">${autor.nome}</h2>
+                                                        <p class="geLiteratura-date">${formatDate(autor.data_in)} || ${formatDate(autor.data_out)}</p>
+                                                        <div class="geLiteratura-details">
+                                                            <p class="geLiteratura-description">${autor.biografia}</p>
+                                                        </div>
+                                                        <button class="button" onclick="openModal()">Livros</button>
+                                                    </div>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    </section>
+                                `;
                             })
-                        
-                            })
-                            .catch(error => console.error('Erro ao buscar subcategorias:', error));
-                    })
-                    .catch(error => console.error('Erro ao buscar posts:', error));
-            }
-    fetchPosts();
+                            .catch(error => console.error('Erro ao buscar responsáveis:', error));
+                    });
+                })
+                .catch(error => console.error('Erro ao buscar subcategorias:', error));
+        })
+        .catch(error => console.error('Erro ao buscar posts:', error));
+}
+function formatDate(isoDate) {
+    const date = new Date(isoDate);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Os meses são zero-indexados
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+}
+fetchPosts();
+
     
     const menuToggle = document.getElementById('menu-toggle');
         const menu = document.getElementById('menu');

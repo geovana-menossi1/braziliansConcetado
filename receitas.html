@@ -66,6 +66,12 @@
         </div>
     </nav>
     <div class="container-culinaria">
+        <a href="javascript:history.back(-1)"><button  style="border: none; background: none; cursor: pointer;">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+                <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/>
+            </svg>
+        </button>
+       </a> 
         <h1 class="h1-culinaria">receita aqui</h1>
         <div class="image-culinaria">
             <img src="imagem aqui" alt="">
@@ -220,6 +226,21 @@
     });
 </script>
 <script>
+    function goBack() {
+        // Salva a posição da rolagem ao sair da página de receitas
+        // localStorage.setItem('scrollPosition', window.scrollY);
+        // window.location.href = 'gastronomia.html'; // Redireciona para a página de gastronomia
+        // javascript:history.back(-1);
+    }
+
+    // Restaura a posição de rolagem ao carregar a página de gastronomia
+    window.onload = function() {
+        const scrollPosition = localStorage.getItem('scrollPosition');
+        if (scrollPosition) {
+            window.scrollTo(0, parseInt(scrollPosition)); // Restaura a rolagem para a posição salva
+            localStorage.removeItem('scrollPosition'); // Limpa a posição após restaurar
+        }
+    };
     function fetchReceita() {
         const urlParams = new URLSearchParams(window.location.search);
         const postId = urlParams.get('id');

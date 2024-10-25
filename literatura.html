@@ -293,10 +293,10 @@
 </script>
 <script>    
     function fetchPosts() {
-        fetch('http://10.188.35.110:8000/posts')
+        fetch('http://10.188.35.64:8000/posts')
             .then(response => response.json())
             .then(postsData => {
-                fetch('http://10.188.35.110:8000/subcategorias')
+                fetch('http://10.188.35.64:8000/subcategorias')
                     .then(subcategoriesResponse => subcategoriesResponse.json())
                     .then(subcategoriesData => {
                         const validSubcategories = new Map();
@@ -322,7 +322,7 @@
                         });
                         
                         validPosts.forEach(post => {
-                            fetch('http://10.188.35.110:8000/responsaveis')  .then(responsaveisResponse => responsaveisResponse.json())
+                            fetch('http://10.188.35.64:8000/responsaveis')  .then(responsaveisResponse => responsaveisResponse.json())
                             .then(responsaveisData => {
                                 const validResonsaveis = [];
                             responsaveisData.responsaveis.forEach(responsaveis => {
@@ -352,7 +352,7 @@
 
                             periodos.innerHTML+=`
                             <div class="bgimg-1" id="${nomeSubcategoria}">
-                                <img class="img_card_autor" src="http://10.188.35.110:8000/postsimg/${imagempost}" alt="">
+                                <img class="img_card_autor" src="http://10.188.35.64:8000/postsimg/${imagempost}" alt="">
                                 <div class="caption">
                                 <span class="border">${nomeSubcategoria}</span>
                                 </div>
@@ -369,7 +369,7 @@
                             <div style="position:relative;">
                             <div style="color:#ddd; background-color:#282E34; text-align:center; padding:50px 80px; text-align: justify;display: flex; flex-direction: row; justify-content: space-between;">
                                 <div class="card_autor">
-                                    <img class="img_card_autor" src="http://10.188.35.110:8000/responsaveisimg/${nomeimagem}" alt="">
+                                    <img class="img_card_autor" src="http://10.188.35.64:8000/responsaveisimg/${nomeimagem}" alt="">
                                 </div>
                             </div>
                             </div>

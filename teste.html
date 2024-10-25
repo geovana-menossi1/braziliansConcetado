@@ -71,7 +71,7 @@
         top: 10px;
         left: 10px;
     }
-    section.historical-period {
+    .historical-period {
         display: flex;
         gap: 20px;
         align-items: center;
@@ -137,27 +137,31 @@
         flex-direction: column;
         background-color: #000;
         color: white;
-        width: 280px; 
+        width: 330px; 
         border-radius: 20px;
         overflow: hidden;
         position: relative;
         margin: 10px;
-        min-height: 370px;
+        height: 480px;
         justify-content: space-around;
         transition: transform 0.3s ease;
     }
-    .geLiteratura-card-image{
-        width: 100%;
+    .geLiteratura-card-image {
+        width: 80%;
+        height: 200px; /* Define a altura do container da imagem */
         display: flex;
         align-items: center;
         justify-content: center;
+        overflow: hidden; /* Esconde qualquer parte da imagem fora do contorno */
         padding: 10px;
-
+        margin: 10px auto;
     }
-    .imgAutor1 {
-        width: 65%;
-        height: 160px;
-        border-radius: 100%;
+
+    .imgAutor1, .imgAutor {
+        width: 80%; /* Preenche toda a largura do container */
+        height: 100%; /* Preenche toda a altura do container */
+        object-fit: cover; /* Ajusta a imagem para preencher o espaço sem distorcer */
+        border-radius: 100%; 
     }
 
     .geLiteratura-card-content {
@@ -217,18 +221,42 @@
     }
 
     .autor {
-        display: flex;
-        width: 100%;
-        align-items: center;
-        border-radius: 10px;
-        background-image: url(./pexels-catcaryn-938165.jpg);
-        background-size: cover;
-        background-position: center; 
-        justify-content: space-between;
-        height: 90vh;
-        position: relative;
-        flex-direction: column;
-    }
+    display: flex;
+    width: 100%;
+    align-items: center;
+    border-radius: 10px;
+    background-image: url(./museu.jpeg);
+    background-size: cover;
+    background-position: center;
+    justify-content: space-between;
+    height: 90vh;
+    position: relative;
+    flex-direction: column;
+    overflow: hidden; /* Garante que as ondas fiquem dentro do contêiner */
+}
+
+.wave-top,
+.wave-bottom {
+    position: absolute;
+    width: 100%;
+    height: 150px; /* Altura das ondas */
+    left: 0;
+}
+
+.wave-top {
+    top: 0;
+    transform: rotate(180deg); /* Inverte a onda para o topo */
+}
+
+.wave-bottom {
+    bottom: 0;
+}
+
+/* Estilos para as ondas SVG com três camadas de cor */
+.wave-top svg, .wave-bottom svg {
+    width: 100%;
+    height: 100%;
+}
     .tituloautores{
         width: 100%;
         height: 150px;
@@ -265,12 +293,15 @@
         transform: scale(1.05); 
     }
     .imgAutor-container{
-        width: 50%;
+        width: 60%;
         height: 430px;
         border-radius: 10px;
         background-color: #000;
     }
-
+    .imgAutor{
+        max-width: 100%;
+        max-height: 100%;
+    }
     .modal {
         display: none; 
         position: fixed; 
@@ -516,84 +547,7 @@
           </div>
       </div>
       <div id="historical-period">
-      <section class="historical-period">
-        <div class="period-content">
-          <h2>Era Colonial no Brasil</h2>
-          <p>
-            A Era Colonial no Brasil se estende do século XVI até o início do século XIX, caracterizada pela exploração das riquezas naturais, principalmente do pau-brasil, e pela formação dos primeiros núcleos de povoamento. A colonização foi marcada pela chegada dos portugueses e a implantação de sistemas econômicos baseados na monocultura e no trabalho escravo.
-          </p>
-          <a href="#colonial-authors" class="btn-authors">Conheça os autores desse período</a>
-        </div>
-        <div class="period-image">
-          <img src="pintura.jpg" alt="Imagem da Era Colonial no Brasil">
-        </div>
-      </section>
-      <section class="autor" id="authors">
-        <div class="tituloautores"><h1>Autores</h1></div>
-        <div class="autoresCards">
-            <div class="geLiteratura-card-container">
-            <div class="geLiteratura-card-image">
-                <img class="imgAutor1" src="images/arqui_neoclassica.jpg" alt="Carlos Drummond de Andrade">
-            </div>
-            <div class="geLiteratura-card-content">
-                <h2 class="geLiteratura-title">Carlos Drummond de Andrade</h2>
-                <p class="geLiteratura-date">1902 - 1987</p>
-                <div class="geLiteratura-details">
-                    <p class="geLiteratura-description">
-                        Ele foi um poeta mineiro da segunda geração do Modernismo Brasileiro. Além da poesia, ele também se dedicou aos contos e às crônicas. Drummond é visto por muitos como o maior poeta brasileiro que já existiu. Seus poemas já estão na memória coletiva do povo brasileiro.
-                    </p>
-                </div>
-                <button onclick="openModal()">Livros</button>
-            </div>
-            </div>
-            <div class="geLiteratura-card-container">
-                <div class="geLiteratura-card-image">
-                    <img class="imgAutor1" src="images/arqui_neoclassica.jpg" alt="Carlos Drummond de Andrade">
-                </div>
-                <div class="geLiteratura-card-content">
-                    <h2 class="geLiteratura-title">Carlos Drummond de Andrade</h2>
-                    <p class="geLiteratura-date">1902 - 1987</p>
-                    <div class="geLiteratura-details">
-                        <p class="geLiteratura-description">
-                            Ele foi um poeta mineiro da segunda geração do Modernismo Brasileiro. Além da poesia, ele também se dedicou aos contos e às crônicas. Drummond é visto por muitos como o maior poeta brasileiro que já existiu. Seus poemas já estão na memória coletiva do povo brasileiro.
-                        </p>
-                    </div>
-                    <button onclick="openModal()">Livros</button>
-                </div>
-            </div>
-            <div class="geLiteratura-card-container">
-                    <div class="geLiteratura-card-image">
-                        <img class="imgAutor1" src="images/arqui_neoclassica.jpg" alt="Carlos Drummond de Andrade">
-                    </div>
-                    <div class="geLiteratura-card-content">
-                        <h2 class="geLiteratura-title">Carlos Drummond de Andrade</h2>
-                        <p class="geLiteratura-date">1902 - 1987</p>
-                        <div class="geLiteratura-details">
-                            <p class="geLiteratura-description">
-                                Ele foi um poeta mineiro da segunda geração do Modernismo Brasileiro. Além da poesia, ele também se dedicou aos contos e às crônicas. Drummond é visto por muitos como o maior poeta brasileiro que já existiu. Seus poemas já estão na memória coletiva do povo brasileiro.
-                            </p>
-                        </div>
-                        <button onclick="openModal()">Livros</button>
-                    </div>
-            </div>
-            <div class="geLiteratura-card-container">
-                    <div class="geLiteratura-card-image">
-                        <img class="imgAutor1" src="images/arqui_neoclassica.jpg" alt="Carlos Drummond de Andrade">
-                    </div>
-                    <div class="geLiteratura-card-content">
-                        <h2 class="geLiteratura-title">Carlos Drummond de Andrade</h2>
-                        <p class="geLiteratura-date">1902 - 1987</p>
-                        <div class="geLiteratura-details">
-                            <p class="geLiteratura-description">
-                                Ele foi um poeta mineiro da segunda geração do Modernismo Brasileiro. Além da poesia, ele também se dedicou aos contos e às crônicas. Drummond é visto por muitos como o maior poeta brasileiro que já existiu. Seus poemas já estão na memória coletiva do povo brasileiro.
-                            </p>
-                        </div>
-                        <button onclick="openModal()">Livros</button>
-                    </div>
-            </div>
-        </div>
-    </section>
-</div>
+    </div>
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -786,157 +740,96 @@
 
 </script>
 <script>    
-    function fetchPosts() {
-        fetch('http://10.188.35.64:8000/posts')
-            .then(response => response.json())
-            .then(postsData => {
-                fetch('http://10.188.35.64:8000/subcategorias')
-                    .then(subcategoriesResponse => subcategoriesResponse.json())
-                    .then(subcategoriesData => {
-                        const validSubcategories = new Map();
-                        const timeline = document.getElementById("timeline")
-                        const periodos = document.getElementById("historical-period")
+  function fetchPosts() {
+    fetch('http://10.188.35.64:8000/posts')
+        .then(response => response.json())
+        .then(postsData => {
+            fetch('http://10.188.35.64:8000/subcategorias')
+                .then(subcategoriesResponse => subcategoriesResponse.json())
+                .then(subcategoriesData => {
+                    const validSubcategories = new Map();
+                    const timeline = document.getElementById("timeline");
+                    const periodos = document.getElementById("historical-period");
 
-                        subcategoriesData.subcategorias.forEach(subcategoria => {
-                            if (subcategoria.culturas_id_cultura === 1) {
-                                validSubcategories.set(subcategoria.id_subcategoria,subcategoria.nome_subcategoria);
-                                
-                                
-                            }
-                        });
-                        console.log(validSubcategories)
-                        const validPosts = [];
+                    subcategoriesData.subcategorias.forEach(subcategoria => {
+                        if (subcategoria.culturas_id_cultura === 1) {
+                            validSubcategories.set(subcategoria.id_subcategoria, subcategoria.nome_subcategoria);
+                        }
+                    });
 
-                        postsData.posts.forEach(post => {
-                            if (validSubcategories.has(post.subcategorias_id_subcategoria,)) {
-                                validPosts.push(post);
-                            
-                            }
-                        
-                        });
-                        
-                        validPosts.forEach(post => {
-                            fetch('http://10.188.35.64:8000/responsaveis')  .then(responsaveisResponse => responsaveisResponse.json())
+                    const validPosts = [];
+                    postsData.posts.forEach(post => {
+                        if (validSubcategories.has(post.subcategorias_id_subcategoria)) {
+                            validPosts.push(post);
+                        }
+                    });
+
+                    validPosts.forEach(post => {
+                        fetch('http://10.188.35.64:8000/responsaveis')
+                            .then(responsaveisResponse => responsaveisResponse.json())
                             .then(responsaveisData => {
                                 const validResonsaveis = [];
-                            responsaveisData.responsaveis.forEach(responsaveis => {
-                            
+                                responsaveisData.responsaveis.forEach(responsaveis => {
+                                    if (responsaveis.posts_id_post === post.id_post) {
+                                        validResonsaveis.push({
+                                            nome: responsaveis.nome,
+                                            data_in: responsaveis.data_in,
+                                            data_out: responsaveis.data_out,
+                                            biografia: responsaveis.biografia,
+                                            foto: responsaveis.foto
+                                        });
+                                    }
+                                });
 
-                                if (responsaveis.posts_id_post === post.id_post) {
-                                    validResonsaveis.push({
-                                        nome: responsaveis.nome,
-                                        data_in: responsaveis.data_in,
-                                        data_out: responsaveis.data_out,
-                                        biografia: responsaveis.biografia,
-                                        foto: responsaveis.foto
-                                    });
-                                }
-                            });
+                                const nomeSubcategoria = validSubcategories.get(post.subcategorias_id_subcategoria);
+                                const imagempost = post.imagem_post ? post.imagem_post.split("/").pop() : null;
 
-            console.log(validResonsaveis[0].foto); 
-                            
-                            const nomeSubcategoria = validSubcategories.get(post.subcategorias_id_subcategoria);
-                            console.log("nome da subcategoria"+nomeSubcategoria)
-                            const nomeimagem = validResonsaveis[0].foto ? validResonsaveis[0].foto.split("/").pop() : null;
-                            const imagempost = post.imagem_post ? post.imagem_post.split("/").pop() : null;
-                      
-                            timeline.innerHTML+=`
-                            <div class="card_periodo" onclick="scrollToPeriod('${nomeSubcategoria}')"><h3>${nomeSubcategoria}</h3> <h4>(${post.nome_post})</h4></div>
-                            `
+                                timeline.innerHTML += `
+                                    <div class="card_periodo" onclick="scrollToPeriod('${nomeSubcategoria}')"><h3>${nomeSubcategoria}</h3> <h4>(${post.nome_post})</h4></div>
+                                `;
 
-                            periodos.innerHTML+=`
-
-                            <div class="period-content">
-             <h2 id="${nomeSubcategoria}">${nomeSubcategoria}</h2>
-            <p>
-             ${post.descricao_post}
-            </p>
-            <a href="#colonial-authors" class="btn-authors">Conheça os autores desse período</a>
-            </div>
-            <div class="period-image">
-            <img src="http://10.188.35.64:8000/postsimg/${imagempost}" alt="Imagem da Era Colonial no Brasil">
-            </div>
-
-
-            <section class="autor" id="authors">
-        <div class="tituloautores"><h1>Autores</h1></div>
-        <div class="autoresCards">
-            <div class="geLiteratura-card-container">
-            <div class="geLiteratura-card-image">
-                <img class="imgAutor1" src="http://10.188.35.64:8000/responsaveisimg/${nomeimagem}" alt="Carlos Drummond de Andrade">
-            </div>
-            <div class="geLiteratura-card-content">
-                <h2 class="geLiteratura-title">Carlos Drummond de Andrade</h2>
-                <p class="geLiteratura-date">1902 - 1987</p>
-                <div class="geLiteratura-details">
-                    <p class="geLiteratura-description">
-                        Ele foi um poeta mineiro da segunda geração do Modernismo Brasileiro. Além da poesia, ele também se dedicou aos contos e às crônicas. Drummond é visto por muitos como o maior poeta brasileiro que já existiu. Seus poemas já estão na memória coletiva do povo brasileiro.
-                    </p>
-                </div>
-                <button onclick="openModal()">Livros</button>
-            </div>
-            </div>
-            <div class="geLiteratura-card-container">
-                <div class="geLiteratura-card-image">
-                    <img class="imgAutor1" src="images/arqui_neoclassica.jpg" alt="Carlos Drummond de Andrade">
-                </div>
-                <div class="geLiteratura-card-content">
-                    <h2 class="geLiteratura-title">Carlos Drummond de Andrade</h2>
-                    <p class="geLiteratura-date">1902 - 1987</p>
-                    <div class="geLiteratura-details">
-                        <p class="geLiteratura-description">
-                            Ele foi um poeta mineiro da segunda geração do Modernismo Brasileiro. Além da poesia, ele também se dedicou aos contos e às crônicas. Drummond é visto por muitos como o maior poeta brasileiro que já existiu. Seus poemas já estão na memória coletiva do povo brasileiro.
-                        </p>
-                    </div>
-                    <button onclick="openModal()">Livros</button>
-                </div>
-            </div>
-            <div class="geLiteratura-card-container">
-                    <div class="geLiteratura-card-image">
-                        <img class="imgAutor1" src="images/arqui_neoclassica.jpg" alt="Carlos Drummond de Andrade">
-                    </div>
-                    <div class="geLiteratura-card-content">
-                        <h2 class="geLiteratura-title">Carlos Drummond de Andrade</h2>
-                        <p class="geLiteratura-date">1902 - 1987</p>
-                        <div class="geLiteratura-details">
-                            <p class="geLiteratura-description">
-                                Ele foi um poeta mineiro da segunda geração do Modernismo Brasileiro. Além da poesia, ele também se dedicou aos contos e às crônicas. Drummond é visto por muitos como o maior poeta brasileiro que já existiu. Seus poemas já estão na memória coletiva do povo brasileiro.
-                            </p>
-                        </div>
-                        <button onclick="openModal()">Livros</button>
-                    </div>
-            </div>
-            <div class="geLiteratura-card-container">
-                    <div class="geLiteratura-card-image">
-                        <img class="imgAutor1" src="images/arqui_neoclassica.jpg" alt="Carlos Drummond de Andrade">
-                    </div>
-                    <div class="geLiteratura-card-content">
-                        <h2 class="geLiteratura-title">Carlos Drummond de Andrade</h2>
-                        <p class="geLiteratura-date">1902 - 1987</p>
-                        <div class="geLiteratura-details">
-                            <p class="geLiteratura-description">
-                                Ele foi um poeta mineiro da segunda geração do Modernismo Brasileiro. Além da poesia, ele também se dedicou aos contos e às crônicas. Drummond é visto por muitos como o maior poeta brasileiro que já existiu. Seus poemas já estão na memória coletiva do povo brasileiro.
-                            </p>
-                        </div>
-                        <button onclick="openModal()">Livros</button>
-                    </div>
-            </div>
-        </div>
-    </section>
-
-                         
-                                    `
-                                    console.log(post.nome_post+" "+nomeSubcategoria)
-                                })
-                                
+                                periodos.innerHTML += `
+                                    <div class="historical-period">
+                                        <div class="period-content">
+                                            <h2 id="${nomeSubcategoria}">${nomeSubcategoria}</h2>
+                                            <p>${post.descricao_post}</p>
+                                            <a href="#colonial-authors" class="btn-authors">Conheça os autores desse período</a>
+                                        </div>
+                                        <div class="period-image">
+                                            <img src="http://10.188.35.64:8000/postsimg/${imagempost}" alt="Imagem da Era Colonial no Brasil">
+                                        </div>
+                                    </div>
+                                    <section class="autor" id="authors">
+                                        <div class="tituloautores"><h1>Autores</h1></div>
+                                        <div class="autoresCards">
+                                            ${validResonsaveis.map(autor => `
+                                                <div class="geLiteratura-card-container">
+                                                    <div class="geLiteratura-card-image">
+                                                        <img class="imgAutor" src="http://10.188.35.64:8000/responsaveisimg/${autor.foto ? autor.foto.split("/").pop() : 'default.jpg'}" alt="${autor.nome}">
+                                                    </div>
+                                                    <div class="geLiteratura-card-content">
+                                                        <h2 class="geLiteratura-title">${autor.nome}</h2>
+                                                        <p class="geLiteratura-date">${autor.data_in} - ${autor.data_out}</p>
+                                                        <div class="geLiteratura-details">
+                                                            <p class="geLiteratura-description">${autor.biografia}</p>
+                                                        </div>
+                                                        <button onclick="openModal()">Livros</button>
+                                                    </div>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    </section>
+                                `;
                             })
-                        
-                            })
-                            .catch(error => console.error('Erro ao buscar subcategorias:', error));
-                    })
-                    .catch(error => console.error('Erro ao buscar posts:', error));
-            }
-    fetchPosts();
+                            .catch(error => console.error('Erro ao buscar responsáveis:', error));
+                    });
+                })
+                .catch(error => console.error('Erro ao buscar subcategorias:', error));
+        })
+        .catch(error => console.error('Erro ao buscar posts:', error));
+}
+fetchPosts();
+
     
     const menuToggle = document.getElementById('menu-toggle');
         const menu = document.getElementById('menu');

@@ -232,7 +232,7 @@
         background-size: cover;
         background-position: center;
         justify-content: space-between;
-        height: 95vh;
+        height: 100vh;
         position: relative;
         flex-direction: column;
         overflow: hidden; /* Garante que as ondas fiquem dentro do contêiner */
@@ -539,20 +539,9 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-body">
-                <div class="livrosss">
-                    <div class="book-card">
-                        <img src="./pexels-catcaryn-938165.jpg" alt="Capa do Livro 1" class="book-cover">
-                        <div class="book-description">"Capitães da Areia" é um romance de Jorge Amado que retrata a vida de crianças abandonadas nas ruas de Salvador. A obra explora suas lutas diárias e a busca por pertencimento, destacando a solidariedade entre os jovens. Com uma prosa rica, Amado oferece um retrato vívido da sociedade brasileira, convidando à reflexão sobre a realidade dos marginalizados.</div> <!-- Adicione a descrição do livro -->
-                    </div>
-                    <div class="book-card">
-                        <img src="./pexels-catcaryn-938165.jpg" alt="Capa do Livro 1" class="book-cover">
-                        <div class="book-description">"Capitães da Areia" é um romance de Jorge Amado que retrata a vida de crianças abandonadas nas ruas de Salvador. A obra explora suas lutas diárias e a busca por pertencimento, destacando a solidariedade entre os jovens. Com uma prosa rica, Amado oferece um retrato vívido da sociedade brasileira, convidando à reflexão sobre a realidade dos marginalizados.</div> <!-- Adicione a descrição do livro -->
-                    </div>
-                    <div class="book-card">
-                        <img src="./pexels-catcaryn-938165.jpg" alt="Capa do Livro 1" class="book-cover">
-                        <div class="book-description">"Capitães da Areia" é um romance de Jorge Amado que retrata a vida de crianças abandonadas nas ruas de Salvador. A obra explora suas lutas diárias e a busca por pertencimento, destacando a solidariedade entre os jovens. Com uma prosa rica, Amado oferece um retrato vívido da sociedade brasileira, convidando à reflexão sobre a realidade dos marginalizados.</div> <!-- Adicione a descrição do livro -->
-                    </div>
+            <div class="modal-body" >
+                <div class="livrosss" id="livros">
+                  
                 </div>
             </div>
             
@@ -721,15 +710,17 @@
 </script>
 <script>    
   function fetchPosts() {
-    fetch('http://10.188.35.64:8000/posts')
+    fetch('http://10.188.35.101:8000/posts')
         .then(response => response.json())
         .then(postsData => {
-            fetch('http://10.188.35.64:8000/subcategorias')
+            fetch('http://10.188.35.101:8000/subcategorias')
                 .then(subcategoriesResponse => subcategoriesResponse.json())
                 .then(subcategoriesData => {
                     const validSubcategories = new Map();
+                    const validLivros = new Map();
                     const timeline = document.getElementById("timeline");
                     const periodos = document.getElementById("historical-period");
+                    const livro = document.getElementById("livros");
 
                     subcategoriesData.subcategorias.forEach(subcategoria => {
                         if (subcategoria.culturas_id_cultura === 1) {
@@ -743,9 +734,9 @@
                             validPosts.push(post);
                         }
                     });
-
+                    
                     validPosts.forEach(post => {
-                        fetch('http://10.188.35.64:8000/responsaveis')
+                        fetch('http://10.188.35.101:8000/responsaveis')
                             .then(responsaveisResponse => responsaveisResponse.json())
                             .then(responsaveisData => {
                                 const validResponsaveis = [];
@@ -760,7 +751,7 @@
                                         });
                                     }
                                 });
-
+                                console.log(post)
                                 const nomeSubcategoria = validSubcategories.get(post.subcategorias_id_subcategoria);
                                 const imagempost = post.imagem_post ? post.imagem_post.split("/").pop() : null;
                                 const authorsSectionId = `authors-${post.id_post}`;
@@ -777,7 +768,7 @@
                                             <a href="#${authorsSectionId}" class="btn-authors">Conheça os autores desse período</a>
                                         </div>
                                         <div class="period-image">
-                                            <img src="http://10.188.35.64:8000/postsimg/${imagempost}" alt="Imagem da Era Colonial no Brasil">
+                                            <img src="http://10.188.35.101:8000/postsimg/${imagempost}" alt="Imagem da Era Colonial no Brasil">
                                         </div>
                                     </div>
                                     <section class="autor" id="${authorsSectionId}">
@@ -786,7 +777,7 @@
                                             ${validResponsaveis.map(autor => `
                                                 <div class="geLiteratura-card-container">
                                                     <div class="geLiteratura-card-image">
-                                                        <img class="imgAutor" src="http://10.188.35.64:8000/responsaveisimg/${autor.foto ? autor.foto.split("/").pop() : 'default.jpg'}" alt="${autor.nome}">
+                                                        <img class="imgAutor" src="http://10.188.35.101:8000/responsaveisimg/${autor.foto ? autor.foto.split("/").pop() : 'default.jpg'}" alt="${autor.nome}">
                                                     </div>
                                                     <div class="geLiteratura-card-content">
                                                         <h2 class="geLiteratura-title">${autor.nome}</h2>
@@ -794,21 +785,113 @@
                                                         <div class="geLiteratura-details">
                                                             <p class="geLiteratura-description">${autor.biografia}</p>
                                                         </div>
-                                                        <button class="button" onclick="openModal()">Livros</button>
+                                                        <button class="button" onclick="openLivrosModal('${autor.nome}')">Livros</button>
                                                     </div>
                                                 </div>
                                             `).join('')}
                                         </div>
                                     </section>
                                 `;
+                                    
+                                
+                                
                             })
                             .catch(error => console.error('Erro ao buscar responsáveis:', error));
                     });
+                    subcategoriesData.subcategorias.forEach(subcategoria => {
+                        if (subcategoria.culturas_id_cultura === 8) {
+                            validLivros.set(subcategoria.id_subcategoria, subcategoria.nome_subcategoria);
+                        
+                        }
+                    });
+                    const validivros = [];
+                    postsData.posts.forEach(post => {
+                        if (validLivros.has(post.subcategorias_id_subcategoria)) {
+                            validivros.push(post);
+                            
+                        }
+                    });
+                    validivros.forEach(livros => {
+                        console.log(livros)
+                        const imagempost = livros.imagem_post ? livros.imagem_post.split("/").pop() : null;
+                       
+                        livro.innerHTML+=`
+                        <div class="book-card">
+                        <img src="http://10.188.35.101:8000/postsimg/${imagempost}" alt="Capa do Livro 1" class="book-cover">
+                        <div class="book-description">"${livros.nome_post}" ${livros.descricao_post}</div> <!-- Adicione a descrição do livro -->
+                    </div>`
+
+                    })
                 })
                 .catch(error => console.error('Erro ao buscar subcategorias:', error));
         })
         .catch(error => console.error('Erro ao buscar posts:', error));
 }
+function showLivrosPorAutor(nomeAutor) {
+    const livroContainer = document.getElementById("livros");
+    livroContainer.innerHTML = ""; // Limpa o container antes de exibir os livros correspondentes
+
+    // Primeiro, busca todas as subcategorias e cria um mapa de IDs para nomes
+    fetch('http://10.188.35.101:8000/subcategorias')
+        .then(response => response.json())
+        .then(subcategoriesData => {
+            const subcategoryNames = {};
+            subcategoriesData.subcategorias.forEach(subcategoria => {
+                subcategoryNames[subcategoria.id_subcategoria] = subcategoria.nome_subcategoria.trim(); // Usa trim() aqui
+            });
+
+            // Em seguida, busca os posts e adiciona o nome da subcategoria a cada post
+            fetch('http://10.188.35.101:8000/posts')
+                .then(response => response.json())
+                .then(postsData => {
+                    // Adiciona o nome da subcategoria correspondente a cada post
+                    const postsWithSubcategoryName = postsData.posts.map(post => ({
+                        ...post,
+                        subcategoria_nome: subcategoryNames[post.subcategorias_id_subcategoria]?.trim() || "Subcategoria Desconhecida" // Usa trim() aqui também
+                    }));
+
+                    console.log(postsWithSubcategoryName);
+
+                    // Filtra os posts onde o nome da subcategoria corresponde ao nome do autor
+                    const livrosFiltrados = postsWithSubcategoryName.filter(post => 
+                        post.subcategoria_nome === nomeAutor.trim() // Usa trim() aqui
+                    );
+
+                    console.log(nomeAutor);
+
+                    // Exibe os livros filtrados
+                    livrosFiltrados.forEach(livroPost => {
+                        const imagemLivro = livroPost.imagem_post ? livroPost.imagem_post.split("/").pop() : null;
+                        livroContainer.innerHTML += `
+                            <div class="book-card">
+                                <img src="http://10.188.35.101:8000/postsimg/${imagemLivro}" alt="Capa do Livro" class="book-cover">
+                                <div class="book-description">"${livroPost.nome_post}" ${livroPost.descricao_post}</div>
+                            </div>
+                        `;
+                    });
+
+                    if (livrosFiltrados.length === 0) {
+                        livroContainer.innerHTML = "<p>Nenhum livro encontrado para este autor.</p>";
+                    }
+                })
+                .catch(error => console.error('Erro ao buscar posts:', error));
+        })
+        .catch(error => console.error('Erro ao buscar subcategorias:', error));
+}
+
+
+// Função para abrir o modal de livros e chamar showLivrosPorAutor com o nome do autor
+function openLivrosModal(nomeAutor) {
+    document.getElementById("modal").style.display = "block";
+    showLivrosPorAutor(nomeAutor); // Chama a função para exibir os livros do autor
+}
+
+// Função para fechar o modal
+function closeLivrosModal() {
+    const modal = document.getElementById("modalLivros");
+    modal.style.display = "none";
+}
+
 function formatDate(isoDate) {
     const date = new Date(isoDate);
     const day = String(date.getDate()).padStart(2, '0');

@@ -258,10 +258,10 @@
 <script>
     async function renderPosts() {
         try {
-            const postsResponse = await fetch('http://10.188.35.64:8000/posts');
+            const postsResponse = await fetch('http://10.188.35.101:8000/posts');
             const postsData = await postsResponse.json();
     
-            const subcategoriesResponse = await fetch('http://10.188.35.64:8000/subcategorias');
+            const subcategoriesResponse = await fetch('http://10.188.35.101:8000/subcategorias');
             const subcategoriesData = await subcategoriesResponse.json();
     
             const validSubcategories = new Set();
@@ -289,7 +289,7 @@
             const postItem = `
                 <div class="post-item ${alignmentClass}">
                     <div class="img_wrapper2">
-                        <img src="http://10.188.35.64:8000/postsimg/${nomeReal}" alt="${post.nome_post}">
+                        <img src="http://10.188.35.101:8000/postsimg/${nomeReal}" alt="${post.nome_post}">
                     </div>
                     <div class="info_arqui">
                         <h2 class="h2_arquitetura">${post.nome_post}</h2>

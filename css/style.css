@@ -150,11 +150,11 @@ background-color: #7289DA;
   align-items: center;
 }
 .button_search{
-  width: 22%;
+  width: 25%;
   height: 80px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 /* /////////////////////////////////////////////////////////// Links ////////////////////////////////////////////////////////////////// */
 
@@ -887,70 +887,23 @@ transform: translateY(20px);
 transition: opacity 0.5s ease, transform 0.5s ease; 
 }
 /* /////////////////////////////////////////////////////////// Literatura ////////////////////////////////////////////////////////////////// */
-.body_lit, html {
-height: 100%;
-margin: 0;
-font:'Roboto';
-color: #777;
+html {
+  scroll-behavior: smooth;
 }
-.bgimg-1, .bgimg-2, .bgimg-3 {
-position: relative;
-opacity: 0.65;
-background-attachment: fixed;
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-
-}
-.bgimg-1 {
-  height: 800px;
-}
-.bgimg-1 img{
-  height: 800px;
-}
-
-.bgimg-2 {
-background-image: url("../images/books3.jpg");
-min-height: 400px;
-}
-
-.bgimg-3 {
-background-image: url("../images/books4.jpg");
-min-height: 400px;
-}
-
-.caption {
-position: absolute;
-left: 0;
-top: 50%;
-width: 100%;
-text-align: center;
-color: #000;
-}
-
-.caption span.border {
-background-color: #111;
-color: #fff;
-padding: 18px;
-font-size: 25px;
-letter-spacing: 10px;
-}
-
-
 .time{
-width: 100%;
-height: 350px;
-background-color: #000;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-color: white;
-text-align: center;
+  width: 100%;
+  height: 350px;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
 }
 
 .time h1{
-color: white;
+  color: white;
 }
 
 .linha_tempo {
@@ -1010,62 +963,692 @@ color: white;
   transform: translateX(-50%);
 }
 .card_periodo::after {
-content: '';
-position: absolute;
-width: 30px;
-height: 30px;
-background-color: #057042;
-border-radius: 50%;
-top: -60px; 
-left: 50%;
-transform: translateX(-50%);
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #057042;
+  border-radius: 50%;
+  top: -60px; 
+  left: 50%;
+  transform: translateX(-50%);
 }
 .card_periodo:hover {
-background-color: #000; 
-transform: scale(1.05); 
-box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); 
-color: white;
+  background-color: #000; 
+  transform: scale(1.05); 
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); 
+  color: white;
 }
 .linha_do_tempo{
-margin-top: 20px;
-padding-top: 20px;
-border-top: 8px solid #057042;;
-width: 100%;
-height: 250px;
-display: flex;
-align-items: center;
-overflow-x: auto;
-position: relative;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 8px solid #057042;;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  position: relative;
 }
-.card_autor, .card_livro{
-width: 330px;
-height: 400px;
-border-radius: 5px;
-background-color: #ccc;
+.containerLiteratura {
+  position: relative;
+  text-align: center;
+  color: white;
+  background-image: url('../images/pintura3.jpg'); 
+  background-size: cover;
+  background-position: center;
+  padding: 50px;
+  width: 100%; 
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.img_card_autor, .img_card_livro{
-width: 100%;
-height: 400px;
-border-radius: 5px;
+
+.border-boxLit {
+  position: relative;
+  padding: 50px;
+  border: 2px solid white;
+  border-radius: 10px;
+  display: inline-block;
+  z-index: 1; 
 }
-.LitAutores{
-color:#ddd; 
-background-color:#282E34; 
-text-align:center; 
-padding:50px 80px; 
-text-align: justify; 
-display: flex; 
-flex-direction: row; 
-justify-content: space-around;
-width: 100%;
+
+.titleLit {
+  font-size: 4rem;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-family: 'Playfair Display', serif;
 }
-.LiteraturaInicio{
-color: #fff;
-font-size: 18px;
-background-color:#282E34;
-text-align:center;
-padding: 50px 80px;
-text-align: justify;
+
+.subtitleLit {
+  font-size: 2rem;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.border-boxLit::before, .border-boxLit::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid white;
+  border-radius: 10px;
+  top: 0;
+  left: 0;
+  z-index: -1; 
+  transition: all 0.3s ease;
+}
+
+.border-boxLit::before {
+  top: -10px;
+  left: -10px;
+}
+
+.border-boxLit::after {
+  top: 10px;
+  left: 10px;
+}
+.historical-period {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding-left: 20px;
+  width: 100%;
+  margin: 20px auto;
+  border-radius: 15px;
+  background-color: #f7f7f7;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+  height: 500px; 
+}
+
+.period-content {
+  flex: 1;
+}
+
+.period-content h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #01261F; 
+}
+
+.period-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.period-image {
+  flex: 1;
+  display: flex; 
+  justify-content: flex-end;
+}
+
+.period-image img {
+  width: 100%;
+  height: 500px; 
+  object-fit: cover; 
+  margin: 0; 
+  padding: 0;
+  border-radius: 0 15px 15px 0; 
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-authors {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 10px 20px;
+  background-color: #1C8C4D; 
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.btn-authors:hover {
+  background-color: #057042; 
+}
+
+.geLiteratura-card-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #000;
+  color: white;
+  width: 330px; 
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  margin: 10px;
+  height: 530px;
+  justify-content: space-around;
+  transition: transform 0.3s ease;
+  box-shadow: 0px 4px 15px rgba(48, 43, 43, 0.971);
+}
+.geLiteratura-card-image {
+  width: 80%;
+  height: 200px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; 
+  padding: 10px;
+  margin: 10px auto;
+}
+
+.imgAutor1, .imgAutor {
+  width: 80%; 
+  height: 100%; 
+  object-fit: cover;
+  border-radius: 100%; 
+}
+
+.geLiteratura-card-content {
+  padding: 18px; 
+}
+
+.geLiteratura-title {
+  font-size: 16px; 
+  font-weight: bold;
+}
+
+.geLiteratura-date {
+  font-size: 13px; 
+  margin-bottom: 9px; 
+  color: #888;
+}
+
+.geLiteratura-details {
+  font-size: 13px; 
+  margin-bottom: 18px; 
+}
+
+.geLiteratura-medium,
+.geLiteratura-dimensions {
+  margin-bottom: 9px;
+}
+
+.geLiteratura-description {
+  font-size: 11px; 
+  color: #ccc;
+}
+
+.geLiteratura-read-more {
+  display: inline-block;
+  margin-top: 9px; 
+  padding: 9px 18px; 
+  background-color: #ccc;
+  color: black;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.geLiteratura-read-more:hover {
+  background-color: #a5a4a4;
+}
+
+.geLiteratura-history-label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: rotate(-90deg);
+  transform-origin: left top 0;
+  background-color: #ccc;
+  padding: 5px 20px;
+  font-size: 14px; 
+  color: white;
+}
+
+.autor {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  justify-content: space-between;
+  height: 100vh;
+  position: relative;
+  flex-direction: column;
+  overflow: hidden; 
+  background-color: #212020;
+}
+.tituloautores{
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  z-index: 3;
+  font-size: 1.8rem;
+  color: white;
+}
+
+.autor::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1; 
+}
+
+.autoresCards{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  position: relative;
+  padding: 20px;
+  z-index: 2;
+}
+.geLiteratura-card-container:hover {
+  transform: scale(1.05); 
+}
+.imgAutor-container{
+  width: 60%;
+  height: 430px;
+  border-radius: 10px;
+  background-color: #000;
+}
+.imgAutor{
+  max-width: 100%;
+  max-height: 100%;
+}
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 5; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4); 
+    
+}
+
+.modal-content {
+  background-color: #fefefe; 
+  margin: 20px auto; 
+  padding: 0; 
+  width: 45%; 
+  position: relative;
+  border-radius: 15px;
+  min-height: 550px;
+}
+
+.modal-header {
+  background-color: rgb(0, 0, 0); 
+  padding: 0; 
+  width: 100%; 
+  height: 270px;
+  border-radius: 15px 15px 0px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+}
+.modal-header h1 {
+  margin: 10px auto;
+}
+
+.close {
+  color: white; 
+  font-size: 28px; 
+  font-weight: bold;
+  position: absolute; 
+  top: 10px;
+  right: 20px; 
+  cursor: pointer; 
+}
+
+.modal-body {
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 20px; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.book-card {
+  position: relative; 
+  background-color: #f8f8f8; 
+  border: 1px solid #ccc; 
+  border-radius: 8px; 
+  width: 180px; 
+  height: 220px;
+  overflow: hidden; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.2s; 
+}
+
+.book-card:hover {
+  transform: scale(1.05);
+}
+
+.book-cover {
+  width: 100%; 
+  height: 100%; 
+  display: block; 
+  transition: opacity 0.3s; 
+}
+.book-description {
+  position: absolute; 
+  top: 50%;
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px; 
+  text-align: center; 
+  opacity: 0; 
+  transition: opacity 0.3s; 
+  font-size: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.book-card:hover .book-description {
+  opacity: 1; 
+}
+.loader {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  --book-color: #ffffff;
+  --book-cover-color: #b31616;
+  border-bottom: 3px solid var(--book-cover-color)
+}
+.book {
+  width: 150px;
+  height: 13px;
+  background-color: var(--book-color);
+  border-bottom: 2px solid var(--book-cover-color);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  position: relative;
+}
+.page {
+  width: 50%;
+  height: 2px;
+  background-color: var(--book-color);
+  animation: paging 0.7s ease-out infinite;
+  transform-origin: left;
+}
+.page2 {
+  width: 50%;
+  height: 2px;
+  background-color: var(--book-color);
+  animation: paging 0.8s ease-out infinite;
+  transform-origin: left;
+  position: absolute;
+}
+@keyframes paging {
+10% {
+    transform: rotateZ(0deg);
+}
+100% {
+    transform: rotateZ(-180deg);
+}
+}
+.livrosss{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.button {
+  background-color: #b31616; 
+  color: white; 
+  border: none; 
+  border-radius: 8px; 
+  font-size: 16px; 
+  font-weight: bold;
+  cursor: pointer; 
+  transition: background-color 0.3s ease, transform 0.2s ease; 
+  width: 100%;
+  padding: 10px;
+}
+
+.button:hover {
+  background-color: #a11515; 
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+  .titleLit {
+    font-size: 2rem;
+  }
+  .containerLiteratura{
+    height: 40vh;
+    margin-top: 80px;
+  }
+
+  .subtitleLit {
+    font-size: 1rem;
+  }
+
+  .border-boxLit {
+    padding: 10px;
+  }
+  .historical-period {
+    flex-direction: column;
+    align-items: flex-start; 
+    height: auto;
+    padding: 20px; 
+  }
+
+  .period-content {
+    flex: none; 
+    width: 100%; 
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .period-image {
+    flex: none; 
+    width: 100%; 
+    justify-content: center; 
+  }
+
+  .period-image img {
+    display: none;
+  }
+
+  .btn-authors {
+    width: 100%; 
+    text-align: center; 
+    padding: 15px; 
+    position: relative;
+    top: 10px;
+  }
+  .autor {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px;
+  }
+
+  .autor::before {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+  }
+  .autoresCards {
+    display: flex;
+    flex-direction: column;
+  }
+  .tituloautores h1{
+    margin-top: 50px;
+  }
+  .geLiteratura-card-container{
+    margin-bottom: 60px;
+  }
+  .modal-content{
+    width: 80%;
+    margin: 100px auto;
+  }
+  .livrosss{
+    display: flex;
+    flex-direction: column;
+  }
+  .book-card {
+    width: 100px; 
+    height: 140px;
+  }
+  .book-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; 
+    width: 180px;
+  }
+  .book-card {
+    position: relative;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 140px;
+    display: flex;
+    flex-direction: row;
+    margin: 5px auto;
+  }
+  .book-description {
+    background-color: rgb(255, 255, 255);
+    opacity: 1;
+    transition: none;
+    width: 60%;
+    border-radius: 8px;
+    position: relative;
+    left: 85px;
+    color: black;
+    padding: 0px 20px;
+  }
+  .book-card img{
+    width: 100px;
+    height: 140px;
+  }
+  
+}
+@media (min-width: 770px) and (max-width: 1395px) {
+  .titleLit {
+    font-size: 3rem;
+  }
+
+  .subtitleLit {
+    font-size: 1.5rem;
+  }
+
+  .border-boxLit {
+    padding: 30px;
+  }
+  .containerLiteratura{
+    height: 50vh;
+  }
+  .historical-period{
+    height: 300px;
+  }
+  .period-image{
+    height: 300px;
+  }
+  .period-image img{
+    height: 300px;
+  }
+  .autor{
+    height: 60vh;
+  }
+  .geLiteratura-description{
+    font-size: 8px;
+  }
+  .geLiteratura-card-image{
+    width: 100%;
+    height: 200px;
+  }
+  .autoresCards {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    padding: 20px;
+    z-index: 2;
+    overflow-x: auto;
+    justify-content: space-between;
+  }
+  
+  .geLiteratura-card-container {
+    height: 450px;
+    width: 250px;
+    flex: 0 0 auto; 
+  }
+  
+  .livrosss{
+    display: flex;
+    flex-direction: column;
+  }
+  .book-card {
+    width: 100px; 
+    height: 140px;
+  }
+  .book-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; 
+    width: 180px;
+  }
+  .book-card {
+    position: relative;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 140px;
+    display: flex;
+    flex-direction: row;
+    margin: 5px auto;
+  }
+  .book-description {
+    background-color: rgba(255, 255, 255, 0);
+    opacity: 1;
+    transition: none;
+    width: 60%;
+    border-radius: 8px;
+    position: relative;
+    left: 180px;
+    color: black;
+    padding: 0px 20px;
+  }
+  .book-card img{
+    width: 100px;
+    height: 140px;
+  }
+  .modal-content{
+    width: 60%;
+    margin: 150px auto;
+  }
 }
 /* /////////////////////////////////////////////////////////// Gastronomia ////////////////////////////////////////////////////////////////// */
 .carouselGe3 {

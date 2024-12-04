@@ -245,7 +245,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         const postId = urlParams.get('id');
 
-        fetch(`http://10.188.35.101:8000/posts/${postId}`)
+        fetch(`http://10.188.35.85:8000/posts/${postId}`)
             .then(response => response.json())
             .then(data => {
                 // Exibe o nome da receita no título
@@ -255,7 +255,7 @@
                 // Exibe a imagem da receita
                 const imgReceita = document.querySelector('.image-culinaria img');
                 const nomeReal = data.imagem_post ? data.imagem_post.split("/").pop() : null;
-                imgReceita.src = `http://10.188.35.101:8000/postsimg/${nomeReal}`;
+                imgReceita.src = `http://10.188.35.85:8000/postsimg/${nomeReal}`;
                 imgReceita.alt = data.nome_post;
 
                 // Extrai ingredientes e modo de preparo

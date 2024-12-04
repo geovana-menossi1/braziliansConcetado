@@ -439,7 +439,7 @@
 </script>
 <script>
     function fetchSubcategorias() {
-    fetch('http://10.188.35.101:8000/subcategorias')
+    fetch('http://10.188.35.85:8000/subcategorias')
         .then(response => response.json())
         .then(data => {
             const select = document.getElementById('generosMusicais');
@@ -474,7 +474,7 @@
 
     // Função para buscar o post com base no nome da subcategoria
     function fetchPostBySubcategoria(subcategoriaNome) {
-        fetch('http://10.188.35.101:8000/posts')
+        fetch('http://10.188.35.85:8000/posts')
             .then(response => response.json())
             .then(postsData => {
                 console.log(subcategoriaNome);
@@ -496,7 +496,7 @@
     async function fetchArtistasBySubcategoria(subcategoriaId) {
     try {
         // Faz o fetch de todos os posts de artistas relacionados à subcategoria
-        const response = await fetch(`http://10.188.35.101:8000/posts?subcategoria_id=${subcategoriaId}`);
+        const response = await fetch(`http://10.188.35.85:8000/posts?subcategoria_id=${subcategoriaId}`);
         const data = await response.json();
 
         // Limpa a seção existente de artistas antes de inserir os novos
@@ -538,7 +538,7 @@ async function fetchResponsaveisByPostIds(postIds) {
         for (let i = 0; i < postIds.length; i++) { // Começa em 0 para incluir todos os postIds
             const postId = postIds[i];
             console.log("foi lido o id de numero "+postId)
-            const response = await fetch(`http://10.188.35.101:8000/responsaveis?post_id=${postId}`);
+            const response = await fetch(`http://10.188.35.85:8000/responsaveis?post_id=${postId}`);
             const data = await response.json();
 
             // Verifica se a resposta contém responsáveis e adiciona ao Set
@@ -573,7 +573,7 @@ function displayResponsaveis(responsaveis) {
             const img = document.createElement('img');
             const nomeReal = responsavel.foto ? responsavel.foto.split("/").pop() : null;
 
-            img.src = `http://10.188.35.101:8000/responsaveisimg/${nomeReal}`; // A URL da imagem
+            img.src = `http://10.188.35.85:8000/responsaveisimg/${nomeReal}`; // A URL da imagem
             img.alt = `Foto de ${responsavel.nome}`;
             img.classList.add('artista-imagem'); // Classe para estilização
 

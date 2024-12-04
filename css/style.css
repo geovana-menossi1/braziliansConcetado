@@ -2485,19 +2485,21 @@ opacity: 1;
 }
 
 .artista-card {
-  background-color: #fff;
+  background-color: #f9f9f9; /* Tom suave para evitar branco puro */
   border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Sombra mais suave e difusa */
   width: calc(33.333% - 20px);
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Prevenção de conteúdo escapando do limite */
 }
 
 .artista-card:hover {
   transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra mais forte ao hover */
 }
 
 .artista-imagem {
@@ -2507,19 +2509,48 @@ opacity: 1;
   border-radius: 20px;
   object-fit: cover;
   margin-bottom: 20px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.artista-card:hover .artista-imagem {
+  transform: scale(1.05); /* Leve zoom na imagem ao hover */
+  opacity: 0.95; /* Suaviza a imagem */
 }
 
 .nome-artista {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #333;
+  font-size: 1.6rem;
+  font-weight: bold; /* Destaque maior para o nome */
+  margin-bottom: 12px;
+  color: #2c3e50; /* Tom azul-escuro para contraste */
+  text-align: center; /* Alinhamento central para mais harmonia */
+  transition: color 0.3s ease;
+}
+
+.artista-card:hover .nome-artista {
+  color: #08730a; /* Muda a cor ao hover para um tom vibrante */
 }
 
 .descricao-artista {
   font-size: 1rem;
-  color: #666;
+  color: #7f8c8d; /* Tom neutro */
   text-align: center;
+  line-height: 1.5; /* Melhora a legibilidade */
+  padding: 0 10px; /* Adiciona espaçamento interno */
 }
+
+@media (max-width: 768px) {
+  .artista-card {
+    width: calc(50% - 20px); /* Ajuste para telas menores */
+  }
+}
+
+@media (max-width: 480px) {
+  .artista-card {
+    width: 100%; /* Ocupa toda a largura em dispositivos muito pequenos */
+    margin-bottom: 20px; /* Espaçamento entre os cards */
+  }
+}
+
 
 .genre-introduction {
   width: 100%;

@@ -176,6 +176,27 @@
 </html>
 
 <script>
+      document.querySelector('.search__button').addEventListener('click', function () {
+        const searchInput = document.querySelector('.search__input').value.toLowerCase(); // Texto digitado pelo usuário
+        const cards = document.querySelectorAll('.card_periodo, .historical-period, .book-card'); // Seleciona os elementos para filtrar
+
+        cards.forEach(card => {
+            const text = card.textContent.toLowerCase(); // Texto do card
+            if (text.includes(searchInput)) {
+                card.style.display = ''; // Exibe o elemento
+            } else {
+                card.style.display = 'none'; // Oculta o elemento
+            }
+        });
+    });
+
+    // Permite pesquisar ao pressionar "Enter" no campo de entrada
+    document.querySelector('.search__input').addEventListener('keypress', function (event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Previne o comportamento padrão
+            document.querySelector('.search__button').click(); // Aciona o clique no botão de pesquisa
+        }
+    });
     document.querySelectorAll('.tab_label').forEach((label, index) => {
         label.addEventListener('click', () => {
             const tabId = `tab${index + 1}`;
@@ -221,8 +242,17 @@
     };
     function scrollToPeriod(periodId) {
     const element = document.getElementById(periodId);
-    element.scrollIntoView({ behavior: 'smooth' });
-    }
+    const offset = -180;
+    
+    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = elementPosition + offset;
+
+    window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+    });
+}
+
 
     function openModal() {
         document.getElementById("modal").style.display = "block";
